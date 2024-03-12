@@ -9,7 +9,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NotifierModule } from "angular-notifier";
 import { StorageServiceModule } from "angular-webstorage-service";
 import { CookieService } from "ngx-cookie-service";
-
+import * as $ from 'jquery';
 import { FullCalendarModule } from "ng-fullcalendar";
 import { NeedAuthGuard } from "./NeedAuthGuard";
 import { AppComponent } from "./app.component";

@@ -1,7 +1,6 @@
-import {CanActivate, Router} from '@angular/router';
+import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '@angular/router';
 import {Injectable} from '@angular/core';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
-import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router/src/router_state';
 
 @Injectable()
 export class NeedAuthGuard implements CanActivate {

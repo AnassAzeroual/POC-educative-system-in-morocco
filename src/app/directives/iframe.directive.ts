@@ -1,4 +1,4 @@
-import {Directive, ElementRef, OnInit, Renderer} from "@angular/core";
+import {Directive, ElementRef, OnInit, Renderer2} from "@angular/core";
 
 @Directive({
   selector: '[appIframe]'
@@ -6,11 +6,11 @@ import {Directive, ElementRef, OnInit, Renderer} from "@angular/core";
 export class IframeDirective {
 
   private el: any;
-    private renderer: Renderer;
+    private renderer: Renderer2;
     private prevHeight: number;
     private sameCount: number;
 
-    constructor(elementRef: ElementRef, renderer: Renderer) {
+    constructor(elementRef: ElementRef, renderer: Renderer2) {
         this.el = elementRef.nativeElement;
         this.renderer = renderer;
     }
@@ -34,7 +34,7 @@ export class IframeDirective {
         if (this.el.contentWindow.document.body.scrollHeight !== this.prevHeight) {
             this.sameCount = 0;
             this.prevHeight = this.el.contentWindow.document.body.scrollHeight;
-            this.renderer.setElementStyle(
+            this.renderer.setStyle(
                 self.el,
                 "height",
                 this.el.contentWindow.document.body.scrollHeight + "px"

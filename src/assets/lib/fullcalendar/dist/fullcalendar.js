@@ -6692,7 +6692,7 @@ var DateComponent = FC.DateComponent = Component.extend({
 
 		this.getEventSegs().forEach(function(seg) {
 			if (
-				seg.footprint.eventDef.id === eventDefId &&
+				seg.footprint.eventDef?.id === eventDefId &&
 				seg.el // necessary?
 			) {
 				seg.el.css('visibility', '');
@@ -6709,7 +6709,7 @@ var DateComponent = FC.DateComponent = Component.extend({
 
 		this.getEventSegs().forEach(function(seg) {
 			if (
-				seg.footprint.eventDef.id === eventDefId &&
+				seg.footprint.eventDef?.id === eventDefId &&
 				seg.el // necessary?
 			) {
 				seg.el.css('visibility', 'hidden');
@@ -8746,7 +8746,7 @@ var View = FC.View = InteractiveDateComponent.extend({
 	isEventDefSelected: function(eventDef) {
 		// event references might change on refetchEvents(), while selectedEventInstance doesn't,
 		// so compare IDs
-		return this.selectedEventInstance && this.selectedEventInstance.def.id === eventDef.id;
+		return this.selectedEventInstance && this.selectedEventInstance.def?.id === eventDef.id;
 	},
 
 
@@ -11492,7 +11492,7 @@ function filterLegacyEventInstances(legacyEventInstances, legacyQuery) {
 
 		return legacyEventInstances.filter(function(legacyEventInstance) {
 			// soft comparison because id not be normalized to string
-			return legacyEventInstance.id == legacyQuery ||
+			return legacyEventInstance?.id == legacyQuery ||
 				legacyEventInstance._id === legacyQuery; // can specify internal id, but must exactly match
 		});
 	}
@@ -12553,7 +12553,7 @@ var EventManager = Class.extend(EmitterMixin, ListenerMixin, {
 	*/
 	getSourceById: function(id) {
 		return $.grep(this.otherSources, function(source) {
-			return source.id && source.id === id;
+			return source?.id && source?.id === id;
 		})[0];
 	},
 
@@ -12895,7 +12895,7 @@ var EventDef = FC.EventDef = Class.extend(ParsableModelMixin, {
 	clone: function() {
 		var copy = new this.constructor(this.source);
 
-		copy.id = this.id;
+		copy?.id = this.id;
 		copy.rawId = this.rawId;
 		copy.uid = this.uid; // not really unique anymore :(
 
@@ -12991,7 +12991,7 @@ var EventDef = FC.EventDef = Class.extend(ParsableModelMixin, {
 		obj.allDay = this.isAllDay();
 
 		if (this.rawId != null) {
-			obj.id = this.rawId;
+			obj?.id = this.rawId;
 		}
 
 		EventDef.copyVerbatimStandardProps(this, obj);
@@ -13002,11 +13002,11 @@ var EventDef = FC.EventDef = Class.extend(ParsableModelMixin, {
 
 	applyManualStandardProps: function(rawProps) {
 
-		if (rawProps.id != null) {
-			this.id = EventDef.normalizeId((this.rawId = rawProps.id));
+		if (rawProps?.id != null) {
+			this?.id = EventDef.normalizeId((this.rawId = rawProps.id));
 		}
 		else {
-			this.id = EventDef.generateId();
+			this?.id = EventDef.generateId();
 		}
 
 		if (rawProps._id != null) { // accept this prop, even tho somewhat internal
@@ -13612,7 +13612,7 @@ var EventDefMutation = FC.EventDefMutation = Class.extend({
 		// can't undo
 		// TODO: more DRY with EventDef::applyManualStandardProps
 		if (this.eventDefId != null) {
-			eventDef.id = EventDef.normalizeId((eventDef.rawId = this.eventDefId));
+			eventDef?.id = EventDef.normalizeId((eventDef.rawId = this.eventDefId));
 		}
 
 		// can't undo
@@ -13697,7 +13697,7 @@ EventDefMutation.createFromRawProps = function(eventInstance, rawProps, largeUni
 		);
 	}
 
-	if (standardProps.id !== eventDef.id) {
+	if (standardProps?.id !== eventDef.id) {
 		eventDefId = standardProps.id; // only apply if there's a change
 	}
 
@@ -14021,8 +14021,8 @@ var EventSource = Class.extend(ParsableModelMixin, {
 
 	applyManualStandardProps: function(rawProps) {
 
-		if (rawProps.id != null) {
-			this.id = EventSource.normalizeId(rawProps.id);
+		if (rawProps?.id != null) {
+			this?.id = EventSource.normalizeId(rawProps.id);
 		}
 
 		// TODO: converge with EventDef
@@ -14186,7 +14186,7 @@ var ArrayEventSource = EventSource.extend({
 	*/
 	removeEventDefsById: function(eventDefId) {
 		return removeMatching(this.eventDefs, function(eventDef) {
-			return eventDef.id === eventDefId;
+			return eventDef?.id === eventDefId;
 		});
 	},
 

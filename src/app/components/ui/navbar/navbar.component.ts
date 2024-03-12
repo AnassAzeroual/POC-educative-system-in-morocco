@@ -1,12 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient, HttpParams, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import {RequestOptions, Request, RequestMethod} from '@angular/http';
-import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Profile } from 'selenium-webdriver/firefox';
+import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { ScoringService } from 'src/app/services/scoring-service/scoring-service.service';
 
-declare var $ :any;
+declare var $: any;
 
 @Component({
   selector: 'app-navbar',
@@ -15,16 +13,16 @@ declare var $ :any;
 })
 export class NavbarComponent implements OnInit {
 
- @Input() profile;
-  constructor(private scoringService:ScoringService,private http: HttpClient, private localStorageService:LocalStorageService,private router: Router) {}
-  
+  @Input() profile;
+  constructor(private scoringService: ScoringService, private http: HttpClient, private localStorageService: LocalStorageService, private router: Router) { }
+
   result;
   userId;
   idClass;
 
-  ngOnInit () {
+  ngOnInit() {
 
-    this.result={
+    this.result = {
       nombre_quiz_reponses_fausses: 8,
       nombre_quiz_reponses_justes: "5",
       nombre_quiz_total: "13",
@@ -34,18 +32,18 @@ export class NavbarComponent implements OnInit {
       pourcentage_reponses_justes: 38,
     }
 
-    let local=this.localStorageService;
-    let key= 'profile';
+    let local = this.localStorageService;
+    let key = 'profile';
     //hover on navbar 
     this.onHover();
 
-    /*check session*/ 
+    /*check session*/
     const req = this.http.post('../../../sessions/read.php', null)
       .subscribe(
         (response: any[]) => {
-          this.userId=response["id_user"];
-          this.idClass=response["id_classe"]
-          this.getProfileByUserId(response["id_user"],local,key); 
+          this.userId = response["id_user"];
+          this.idClass = response["id_classe"]
+          this.getProfileByUserId(response["id_user"], local, key);
           this.getQuiz(response["chemin_classe"]);
         },
         err => {
@@ -53,10 +51,10 @@ export class NavbarComponent implements OnInit {
           this.router.navigateByUrl('/');
         }
       );
-      //end
+    //end
   }
 
-  onHover(){
+  onHover() {
     $('.dmenu').hover(function () {
       $(this).find('.sm-menu').first().slideDown(500);
     }, function () {
@@ -64,74 +62,74 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  getQuiz(chemin){
-      let senddata={"param":chemin,"id_user":this.userId};
-      console.log(senddata)
-      this.http.post('../../../api/arbo/node_quiz', senddata)
-        .subscribe(
-          (response:any) => {
-            console.log(response)
-            this.result=response["informations_des_quiz_du_noeud"];
-  
-          }
-          ,
-          err =>{ }
-  
+  getQuiz(chemin) {
+    let senddata = { "param": chemin, "id_user": this.userId };
+    console.log(senddata)
+    this.http.post('../../../api/arbo/node_quiz', senddata)
+      .subscribe(
+        (response: any) => {
+          console.log(response)
+          this.result = response["informations_des_quiz_du_noeud"];
+
+        }
+        ,
+        err => { }
+
       )
   }
 
-  getprogress(pourcentage){
-    return pourcentage+'%';
+  getprogress(pourcentage) {
+    return pourcentage + '%';
   }
 
-  destroyAllLogout(){
+  destroyAllLogout() {
     const reqLogin = this.http.post('../../../../sessions/destroy.php', null)
-        .subscribe(
-          (response: any[]) => {
-            this.insert_to_histo();
-            this.localStorageService.destructSession();
-          },
-          error => {
-            this.localStorageService.destructSession();
-            this.router.navigateByUrl('/');
-          }
-        );   
-  }
-
-  insert_to_histo(){
-    let sentdata={
-      "p1":this.userId,
-      "p2" : "DECO",
-      "p3" : "5",//to be updated
-      "p4" : "web",
-      "p5" : this.idClass
-      }    
-      console.log(sentdata)            
-     this.http.put('../../../api/activite/insert_conn',sentdata)
       .subscribe(
         (response: any[]) => {
-           console.log(response);
-           this.router.navigateByUrl('/');
-           //this.scoringService.updateScore(sentdata["p3"],this.profile["score"]);
+          this.insert_to_histo();
+          this.localStorageService.destructSession();
+        },
+        error => {
+          this.localStorageService.destructSession();
+          this.router.navigateByUrl('/');
+        }
+      );
+  }
+
+  insert_to_histo() {
+    let sentdata = {
+      "p1": this.userId,
+      "p2": "DECO",
+      "p3": "5",//to be updated
+      "p4": "web",
+      "p5": this.idClass
+    }
+    console.log(sentdata)
+    this.http.put('../../../api/activite/insert_conn', sentdata)
+      .subscribe(
+        (response: any[]) => {
+          console.log(response);
+          this.router.navigateByUrl('/');
+          //this.scoringService.updateScore(sentdata["p3"],this.profile["score"]);
         },
         err => {
           this.router.navigateByUrl('/');
           alert(err['message']);
-      });
+        });
   }
 
-  getProfileByUserId(userId,local,key){
-    if(local.getLocalStorage(key)){
-      this.profile=local.getLocalStorage(key);
-    }else{
-      const reqLogin = this.http.post('../../../api/user/read', {"param":userId})
+  getProfileByUserId(userId, local, key) {
+    if (local.getLocalStorage(key)) {
+      this.profile = local.getLocalStorage(key);
+    } else {
+      const reqLogin = this.http.post('../../../api/user/read', { "param": userId })
         .subscribe(
           (response: any[]) => {
-            local.storeLocalStorage(response["user_information"][0],key);
+            local.storeLocalStorage(response["user_information"][0], key);
             this.profile = response["user_information"][0];
           },
           error => {
-            this.profile=[];
+            this.profile = [];
             /*{
               "message": "No user found.",
               "error_code": "404"
