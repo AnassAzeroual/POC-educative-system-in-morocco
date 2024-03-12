@@ -1,8 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Router , ActivatedRoute } from "@angular/router";
-import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
+import { ActivatedRoute, Router } from "@angular/router";
 import { CookieService } from 'ngx-cookie-service';
+import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 
 declare var $: any;
 @Component({
