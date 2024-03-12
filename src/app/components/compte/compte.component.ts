@@ -3,7 +3,6 @@ import { HttpClient, HttpParams, HttpErrorResponse, HttpHeaders } from '@angular
 import { Router , ActivatedRoute } from "@angular/router";
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { CookieService } from 'ngx-cookie-service';
-import { s } from '@angular/core/src/render3';
 
 declare var $: any;
 @Component({
