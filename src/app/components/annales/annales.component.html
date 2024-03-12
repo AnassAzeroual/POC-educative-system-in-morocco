@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+  <div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+      <app-bouton-home></app-bouton-home>
+
+      <!-- Blog Post -->
+      <div class="mb-4" id="accueil">
+        <div class="box_border_top_style">
+          <div class="card-title matiere turquoise rtl">المواد</div>
+
+          <div class="card mb-4 info-matiere" *ngFor="let matiere of mat">
+            <div class="card-body title-matiere">
+              <table class="rtl">
+                <tr>
+                  <td class="td-img-mat td-notif">
+                    <img
+                      class="img-mat-1"
+                      src="./assets/img/images/{{ matiere.code_objet }}.png"
+                      alt=""
+                      height="40"
+                      width="38"
+                    />
+                  </td>
+                  <td class="nom-mat">
+                    <a [routerLink]="matiere.code_objet" class="link">{{
+                      matiere.libelle_objet
+                    }}</a>
+                  </td>
+                  <td class="mat-resultat">
+                    <!-- <span>{{ matiere * 3 }} نتيجة</span> -->
+                    <!-- using notif instead of simple span -->
+                    <div class="span-notif">
+                      <i class="fa fa-book" aria-hidden="true"></i>
+                    </div>
+                    <div class="span-note-parc">{{ matiere.documentSize }}</div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+
+    <div class="col-md-3 colonne2">
+      <box-sidebar template="annales"></box-sidebar>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+<app-footer></app-footer>

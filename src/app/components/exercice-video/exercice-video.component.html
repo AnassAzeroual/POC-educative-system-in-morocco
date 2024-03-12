@@ -1,0 +1,67 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+
+      <app-bouton-home  [blocCode]="blocCode"  (bloc)="showSubBloc($event)" ></app-bouton-home>
+
+      <!-- Blog Post -->
+      <div class="mb-4" id="accueil">
+        
+       <div class="box_border_top_style"> <!-- fatima -->
+
+         <div class="card-title matiere turquoise rtl"><i class="fas fa-video"></i> تمرين فيديو  </div>
+         <div class="container">
+           <h3 style="margin-top:10px;" class="text-info">{{coursVideosTitle}}</h3>
+           <p style="border-bottom: 1px dotted silver;"></p>
+           <div class="rtl">
+            <iframe width="100%" [src]="chemin_exercice" #iframe style="border: 1px solid silver;border-radius: 8px;height: 170px;"></iframe>
+            </div>
+           <br>
+           <div class="text-center">
+            <span  class="btn btn-info btn--radius" (click)="fuc_show_solution()"><span id="btn_show_solution">إظهار الحل</span><i class="far fa-eye"></i></span>
+            <span  class="btn btn-info btn--radius" (click)="fuc_watch_corrige()"><span id="btn_cours_corrige">إظهار التصحيح بالفيديو </span><i class="fab fa-youtube"></i></span>
+          </div>
+         </div>
+         <div class="container solcontainer ">
+           <div id="corrig_video" class="solution">
+            <div style="text-align: center">
+              <video class="videostyle" controls="controls" width="500">
+               <source src="./assets/videos/Video.mp4">
+              </video>
+            </div>
+           </div>
+           <div id="exer_solution" class="solution">
+             <iframe width="100%" [src]="chemin_corrige" height="800px" style="border: 1px solid silver;border-radius: 8px;"></iframe>
+           </div>
+         </div>
+
+      </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <!-- Sidebar Widgets Column -->
+
+
+    
+    <div class="col-md-3 colonne2">
+     
+        <box-sidebar template="exvideo"></box-sidebar>
+
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+<app-footer></app-footer>

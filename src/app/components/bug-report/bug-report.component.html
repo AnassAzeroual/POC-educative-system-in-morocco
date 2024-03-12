@@ -1,0 +1,50 @@
+<div class="report-bug">
+  <h3 class="report-title">{{ title }}</h3>
+  <div class="report-body">
+    <form #bugsForm="ngForm" (ngSubmit)="sendBug(bugsForm)">
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-3 col-form-label"
+          >البريد الإلكتروني <span>:</span></label
+        >
+        <div class="col-sm-9">
+          <input
+            type="email"
+            ngModel
+            #userEmail="ngModel"
+            name="userEmail"
+            class="form-control"
+            id="inputEmail"
+            placeholder="example@mail.com"
+            required
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputBug" class="col-sm-3 col-form-label"
+          >بماذا يمكنني مساعدتك ؟ <span>:</span></label
+        >
+        <div class="col-sm-9">
+          <textarea
+            ngModel
+            #userBug="ngModel"
+            name="userBug"
+            id="inputBug"
+            cols="30"
+            rows="5"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+      </div>
+      <div class="form-footer">
+        <button
+          type="submit"
+          [disabled]="!bugsForm.valid"
+          class="btn btn-primary"
+        >
+          إرسال
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

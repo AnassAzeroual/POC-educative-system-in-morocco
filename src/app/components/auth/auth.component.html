@@ -1,0 +1,78 @@
+<div class="se-pre-con"></div>
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+
+            <span class="login100-form-title">
+               المرجو التسجيل
+            </span>
+            <form class="login100-form validate-form p-l-64 p-r-10 p-t-58" id="form-login" method="post" novalidate="">
+                <div class="lign1">
+                    <span>إسم المستخدم : </span>
+                    <div class="wrap-input100 validate-input " data-validate="المرجو إدخال إسم المستخدم  " identifiant="">
+                        <input class="input100" id="login_eleve1" name="username" [(ngModel)]="username" placeholder="المرجو إدخال إسم المستخدم  " type="text" value="" ng-reflect-name="username">
+                    </div>
+                </div>
+                <div class=" wrap-input100 validate-input" data-validate="المرجو إدخال الرقم السري" style="display:none;">
+                    <input class="input100" id="pin" name="password" [(ngModel)]="password" placeholder="" type="text" value="" ng-reflect-name="password">
+                </div>
+                <div class="lign2">
+                    <span>: الرقم السري </span>
+                    <div class="wrap-input100 validate-input" style=""><img class="im" id="i1" nom="here" src="./assets/img/images/grey.png">
+                        <img _ngcontent-c1="" class="im" id="i2" nom="" src="./assets/img/images/grey.png">
+                        <img _ngcontent-c1="" class="im" id="i3" nom="" src="./assets/img/images/grey.png">
+                        <img _ngcontent-c1="" class="im" id="i4" nom="" src="./assets/img/images/grey.png">
+                        <img _ngcontent-c1="" class="im" id="i5" nom="" src="./assets/img/images/grey.png">
+                        <i _ngcontent-c1="" aria-hidden="true" class="close fa fa-times">                            
+                        </i>
+                    </div>
+                </div>
+            </form>
+
+            <div class="text-center p-t-10 p-b-23">
+                <span class="txt1 " style="direction: rtl; font-size: 20px;">
+                    <input type="checkbox" name="rememberCheck" id="rememberCheck" > <span class="rememberMe">تذكروني</span>
+                </span>
+            </div>
+            <div class="pin-btns">
+                <button class=" action-button shadow animate blue pin num" id="pin1" num="1">1</button>
+                <button class=" action-button shadow animate red pin num" id="pin2" num="2">2</button>
+                <button class="action-button shadow animate green pin num" id="pin3" num="3">3</button>
+                <button class="action-button shadow animate blue pin num" id="pin4" num="4">4</button>
+                <button class="action-button num shadow animate red pin" id="pin5" num="5">5</button>
+                <button class="action-button shadow num animate green pin" id="pin6" num="6">6</button>
+                <button class="action-button shadow animate num blue pin" id="pin7" num="7">7</button>
+                <button class="action-button shadow animate red pin num" id="pin8" num="8">8</button>
+                <button class="action-button shadow animate green pin num" id="pin9" num="9">9</button>
+                <button class="action-button shadow  animate yellow pin" id="pincheck" (click)=checked()><i class="fas fa-check"></i></button>
+                <button class="action-button shadow  animate red pin num" id="pin0" num="0">0</button>
+                <button class="action-button shadow  animate yellow pin" id="pinback"><i class="fas fa-backspace"></i></button>
+            </div>
+            <div class="text-center p-t-10 p-b-23">
+                <span class="txt1">
+                    هل نسيت 
+                </span>
+
+                <a href="password_fogotten.php" class="txt2">
+                    إسم المستخدم \ كلمة السر؟ 
+                </a>
+            </div>
+            <div class="flex-col-c p-t-20 p-b-40">
+                <span class="txt1 p-b-9">
+                    أليس عندكم حساب ؟
+                </span>
+
+                <a href="#" class="txt3">
+                    سجل حسابك الان
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #customNotificationLogin let-notificationData="notification">
+    <div class="notif-custom">
+        <div class="notif-custom-info" dir="rtl">{{ notificationData.message }}</div>
+        <div class="notif-custom-info">على حضورك</div>
+    </div>
+</ng-template>

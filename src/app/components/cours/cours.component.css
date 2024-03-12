@@ -1,0 +1,16 @@
+#ifram_cours{
+    width: 100%;height: 100vh;
+}
+
+img.print {
+    width: 5.5%;
+    position: absolute;
+    left: 16px;
+    top: 53px;
+    cursor: pointer;
+    border-radius: 15px 3px 15px 3px;
+    background-color: #4b85c5;
+}
+img.print:hover {
+    box-shadow: 0px 0px 5px 1px #2196F3;
+}

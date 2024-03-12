@@ -1,0 +1,5 @@
+.mat-resultat {
+  width: 50px !important; /* 50px if we use an icon */
+  padding-right: 10px;
+  text-align: center;
+}

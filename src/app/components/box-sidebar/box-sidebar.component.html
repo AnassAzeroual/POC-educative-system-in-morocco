@@ -1,0 +1,27 @@
+<div class="has-2-items" id="heightImportent">
+  <!-- ============================== -->
+  <div class="sidebar-item">
+      <div class="make-me-sticky">
+
+        <app-note 
+          *ngIf="Object_sidebar.show_sidebar_note" 
+          >
+        </app-note>
+
+        <app-reussite *ngIf="Object_sidebar.show_sidebar_reussite"></app-reussite>
+        
+        <app-qr *ngIf="Object_sidebar.show_sidebar_qr"></app-qr>
+        
+        <app-outils *ngIf="Object_sidebar.show_sidebar_outile"></app-outils>
+        
+        <app-applique *ngIf="Object_sidebar.show_sidebar_applique"></app-applique>
+
+        <app-apprends *ngIf="Object_sidebar.show_sidebar_apprends"></app-apprends>
+
+        <app-parcours *ngIf="Object_sidebar.show_sidebar_parcours"></app-parcours>
+
+        <app-concours *ngIf="Object_sidebar.show_sidebar_concours"></app-concours>
+
+      </div>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<!--<app-navbar></app-navbar>
+
+<div class="container" style="margin-top: 10%">
+    <div class="row">
+        <div class="col">
+          1 of 3
+        </div>
+        <div class="col col-lg-4">
+            <app-note></app-note>
+        </div>
+      </div>
+</div>-->
+
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+
+    <app-bouton-home  [blocCode]="blocCode"  (bloc)="showSubBloc($event)" ></app-bouton-home>
+
+      <!-- <div class="card mb-4">
+        <img class="card-img-top" src="http://placehold.it/850x300" alt="Card image cap">
+      </div> -->
+
+      <!-- Blog Post -->
+      <div class="mb-4" id="accueil">
+        
+       <div class="box_border_top_style" > <!-- fatima -->
+
+         <div class="card-title matiere turquoise rtl"> الدرس  </div>
+         <!-- <iframe 
+                 id="ifram_cours"
+                 src="404-Page.html"
+                 scrolling="no"
+                 frameborder="0" 
+                 (error)="errorHandler($event)">
+         </iframe> -->
+         <img  class="print" src="./assets/img/icons/printer.png" (click)="print()">
+         <div >
+           <iframe width="100%" [src]="chemin" #iframe  height="2000px"></iframe>
+         </div>
+
+
+         
+        <div *ngIf="fileNotFound=='1'" style="padding: 11px;">
+           <p>Not Found</p>
+        </div>
+      </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <!-- Sidebar Widgets Column -->
+
+
+    
+    <div class="col-md-3 colonne2">
+     
+      <box-sidebar template="cours"></box-sidebar>
+
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+<app-footer></app-footer>

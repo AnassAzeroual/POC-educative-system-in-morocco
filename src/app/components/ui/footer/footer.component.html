@@ -1,0 +1,36 @@
+<footer>
+  <div class="footer container-fluid">
+    <div class="container">
+      <div class="support col-2">
+        <h4>الدعم</h4>
+        <ul>
+          <li>
+            <i class="fa fa-bug"></i
+            ><a (click)="openModal('Bugs')">أبلغ عن خطأ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Modal Profile -->
+<div id="modal_Bugs" class="modal">
+  <div class="modal-content animated pr-2" id="animate_Style_Bugs">
+    <div class="modal-body">
+      <bug-report
+        title="تبليغ عن خطأ"
+        send-data="signalerReport($event)"
+      ></bug-report>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-danger btn-radius"
+        (click)="closeModal('Bugs')"
+      >
+        أغلق
+      </button>
+    </div>
+  </div>
+</div>

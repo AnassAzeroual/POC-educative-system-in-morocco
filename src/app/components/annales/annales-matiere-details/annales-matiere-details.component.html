@@ -1,0 +1,206 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+  <div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+      <app-bouton-home></app-bouton-home>
+
+      <!-- Blog Post -->
+      <div class="mb-4" id="accueil">
+        <div class="box_border_top_style">
+          <div class="card-title matiere turquoise rtl">
+            إمتحان {{ matiere.libelle_objet }}
+          </div>
+          <!-- Annales details for Matiere -->
+          <div class="annales-matiere-details">
+            <!-- Annales Title -->
+            <div class="annales-title">
+              <h2>
+                إمتحان {{ matiere.libelle_objet }} {{ profile.nom_classe }}
+              </h2>
+            </div>
+            <!-- Annales infos -->
+            <div class="annales-info">
+              <table cellpadding="0" cellspacing="0" width="100%">
+                <tbody>
+                  <tr>
+                    <td rowspan="4" class="annales-recap">
+                      معايير<br />
+                      البحث
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="annales-label" width="18%">
+                      مراجعة&nbsp;<span>:</span>
+                    </td>
+                    <td class="annales-value" width="20%">
+                      {{ profile.annee_score }}
+                    </td>
+                    <td class="annales-label" width="12%">&nbsp;</td>
+                    <td class="fe-annale-value" width="30%">
+                      <img
+                        src="./assets/img/images/{{ matiere.code_objet }}.png"
+                        width="24"
+                        height="24"
+                        alt=""
+                        border="0"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="annales-label" width="85px">
+                      سلسلة&nbsp;<span>:</span>
+                    </td>
+                    <td class="annales-value">{{ profile.nom_classe }}</td>
+                    <td class="annales-label" style="width:45px">
+                      مادة&nbsp;<span>:</span>
+                    </td>
+                    <td class="annales-value">{{ matiere.libelle_objet }}</td>
+                  </tr>
+                  <tr>
+                    <td class="annales-label" width="85px">
+                      عدد الوثائق&nbsp;<span>:</span>
+                    </td>
+                    <td class="annales-value">{{ documentSize }}</td>
+                    <td class="annales-label" style="width:45px">
+                      صفحة<span>:</span>
+                    </td>
+                    <td class="annales-value">
+                      {{ page.current }}/{{ page.total }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="annales-pagination">
+              <nav>
+                <ul class="pagination pagination-sm">
+                  <li
+                    class="page-item {{page.current === index+1 ? 'active' : ''}}"
+                    *ngFor="let index of page.pages"
+                  >
+                    <a class="page-link" href="#">{{ index+1 }}</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- Annales List -->
+            <div
+              class="annales-list"
+              *ngFor="let annaleItem of (data.annale_information | keys)"
+            >
+              <div class="annale-year">
+                <h4>
+                  {{ data.annale_information[annaleItem][0].annee_scolaire }}
+                </h4>
+              </div>
+              <div
+                class="annale-item"
+                *ngFor="let annales of data.annale_information[annaleItem]"
+              >
+                <div class="annales-subject">
+                  <img
+                    class="subject-icon"
+                    src="./assets/img/gif/sujet.gif"
+                    alt="Subject"
+                  />
+                  <a
+                    [routerLink]="['display']"
+                    target="blank"
+                    class="subject-title"
+                    (click)="sendAnnaleData(annales)"
+                    >{{ annales.libelle_annale }}
+                  </a>
+                  <a [routerLink]="['display']" target="blank"
+                    ><img
+                      class="subject-sollution"
+                      src="./assets/img/gif/corrige.gif"
+                      alt="Corriger"
+                  /></a>
+                </div>
+                <p class="annales-desc">
+                  <i class="fa fa-angle-left"></i>
+                  <span class="annales-year">{{ annales.annee_scolaire }}</span
+                  >-<span class="annales-type"></span>
+                </p>
+                <p class="annales-interview"></p>
+              </div>
+              <!-- <div class="annale-item">
+                <div class="annales-subject">
+                  <img
+                    class="subject-icon"
+                    src="./assets/img/gif/sujet.gif"
+                    alt="Subject"
+                  />
+                  <a
+                    [routerLink]="['display']"
+                    target="blank"
+                    class="subject-title"
+                    >زيارة بيت جديد
+                  </a>
+                  <a [routerLink]="['display']" target="blank"
+                    ><img
+                      class="subject-sollution"
+                      src="./assets/img/gif/corrige.gif"
+                      alt="Corriger"
+                  /></a>
+                </div>
+                <p class="annales-desc">
+                  <i class="fa fa-angle-left"></i>
+                  <span class="annales-year">2007</span>-<span
+                    class="annales-type"
+                    >التعبير</span
+                  >
+                </p>
+                <p class="annales-interview">{{ description_annales }}</p>
+              </div> -->
+            </div>
+            <!-- 
+            <div class="annales-list">
+              <div class="annale-year"><h4>2006</h4></div>
+              <div class="annale-item">
+                <div class="annales-subject">
+                  <img
+                    class="subject-icon"
+                    src="./assets/img/gif/sujet.gif"
+                    alt="Subject"
+                  />
+                  <a
+                    [routerLink]="['display']"
+                    target="blank"
+                    class="subject-title"
+                    >العشاء في مسكفيل
+                  </a>
+                  <a [routerLink]="['display']" target="blank"
+                    ><img
+                      class="subject-sollution"
+                      src="./assets/img/gif/corrige.gif"
+                      alt="Corriger"
+                  /></a>
+                </div>
+                <p class="annales-desc">
+                  <i class="fa fa-angle-left"></i>
+                  <span class="annales-year">2006</span>-<span
+                    class="annales-type"
+                    >القراءة والفهم</span
+                  >
+                </p>
+                <p class="annales-interview">{{ description_annales }}</p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+
+    <div class="col-md-3 colonne2">
+      <box-sidebar template="annales-m-d"></box-sidebar>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+<app-footer></app-footer>

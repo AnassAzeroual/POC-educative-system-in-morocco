@@ -1,0 +1,124 @@
+
+#classement{
+    padding-bottom: 15px;
+    border-radius: 37px 5px 5px 5px;
+    background-color: #f5f5f5;
+}
+#classement .titre {
+    position: relative;
+    width: 100%;
+    direction: rtl;
+    /* text-align: center; */
+    padding: 0px 13px;
+    /* font-size: 20px; */
+    display: inline-flex;
+    font-weight: bold;
+    height: 46px;
+}
+
+#classement .spantitre {
+    color: white;
+    font-size: 22px;
+    margin-top: 5px;
+}
+#classement .spanicon {
+    margin-left: 19px;
+    color: white;
+    font-size: 24px;
+}
+.tablescore {
+    margin-top: 10px;
+    padding: 0px 21px;
+}
+#classement .titre2 {
+    height: 54px;
+    padding-top: 10px;
+}
+#classement .titre2 p {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 24px;
+    margin-bottom: 0px;
+    /* margin-top: 15px; */
+    color: darkslategray;
+}
+
+#classement .table thead th {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    padding: 5px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    background-color: #48b2e4;
+}
+#classement .user:hover {
+    background-color: #96e8ff4d !important;
+}
+#classement tr {
+    background-color: #b7d5ff4a;
+}
+#classement .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+#classement .user td {
+    font-weight: 600;
+    font-size: 17px;
+    text-align: center;
+    position: relative;
+    color: #495057;
+    border: 1px solid #dee2e696;
+    border-collapse: collapse;
+}
+.focususer{
+    background-color: #FFEB3B;
+}
+.btnscore{
+    margin-right: 23px;
+    background-color: #48b2e4;
+    border-color: #48b2e4;
+    border-radius: 15px 3px;
+    font-size: 17px;
+    display: inline-flex;
+    /*text-shadow: 0px 1px 3px black;*/
+    font-weight: 800;
+}
+.btnscore:hover,.btnscore2:hover {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+}
+.round {
+    height: 15px;
+    background-color: #CDDC39;
+    margin-left: 10px;
+    margin-top: 3px;
+    width: 15px;
+    border-radius: 15px;
+}
+.btnscore2 {
+    display: inline-flex;
+    float: left;
+    margin-right: 23px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    background-color: #48b2e4;
+    border-color: #48b2e4;
+    border-radius: 15px 3px;
+    font-size: 17px;
+    font-weight: 800;
+}
+.round2 {
+    height: 15px;
+    color: #CDDC39;
+    margin-left: 10px;
+    width: 15px;
+    font-size: 19px;
+}
+.firstcolor{
+ background-color: #FFC107 !important;
+}
+.img-mat-1 {
+    position: absolute;
+    right: 30px;
+    top: 6%;
+}

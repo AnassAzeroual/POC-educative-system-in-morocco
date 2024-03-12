@@ -1,0 +1,218 @@
+.planning {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  direction: rtl;
+}
+.planning .create-planning {
+  text-align: left;
+}
+.create-planning > button {
+  background-color: #48b2e4;
+  border-color: #48b2e4;
+}
+.planning .header-planning {
+  margin-top: 10px;
+}
+.session-day b {
+  margin-left: 5px;
+  color: #48b2e4;
+}
+.session-day > span {
+  font-weight: bold;
+  color: #48b2e4;
+}
+.session-day .session {
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+.session-day .session button {
+  font-weight: bold;
+  border-radius: 15px 3px 15px 3px;
+  background-color: #00c7ff;
+  border-color: #00c7ff;
+}
+.achievement .progress-detail {
+  padding-right: 10px;
+  margin: 8px 0;
+}
+.achievement .progress-detail button {
+  font-weight: bold;
+  border-radius: 15px 3px 15px 3px;
+  background-color: #00c7ff;
+  border-color: #00c7ff;
+}
+.achievement .achievement-progress td:first-child {
+  width: 15%;
+  font-weight: bold;
+  color: #48b2e4;
+}
+.achievement .achievement-progress td:last-child {
+  width: 30%;
+}
+.achievement-progress td:last-child span {
+  width: 50%;
+}
+.exercices {
+  height: 50vh;
+  overflow: auto;
+  padding: 0 5px;
+}
+.exercices .exercice {
+  border: 1px solid #ccc;
+  border-radius: 37px 0px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+.exercices .exercice h5 {
+  color: #48b2e4;
+  font-weight: bold;
+}
+
+.exercice .exercice-content img {
+  float: right;
+  margin-left: 10px;
+  width: 40px;
+}
+.exercice .exercice-content h4 {
+  color: #56bdee;
+}
+.exercice .exercice-content .exercice-action {
+  text-align: left;
+}
+.exercice-content .exercice-action button {
+  margin-right: 10px;
+  font-weight: bold;
+  border-radius: 15px 3px 15px 3px;
+  background-color: #00c7ff;
+  border-color: #00c7ff;
+}
+
+.planning-calendar {
+  text-align: center;
+}
+.planning-calendar,
+.achievement,
+.session-day {
+  margin-bottom: 30px;
+}
+#modalPlanning .modal-body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+.add-planning .title span {
+  float: left;
+}
+.add-planning .value input {
+  border-color: #17a2b8;
+}
+.add-planning .value {
+  color: #17a2b8;
+}
+.add-planning .select-matiere {
+  direction: rtl;
+}
+.add-planning .select-matiere .matiere-item .card-body {
+  padding: 10px;
+  width: 160px;
+}
+.add-planning .select-matiere .matiere-item .list-element {
+  list-style: none;
+  padding-right: 5px;
+}
+.add-planning .select-matiere .matiere-item .list-element .element-items {
+  display: none;
+  list-style: none;
+  padding-right: 15px;
+}
+.add-planning .select-hours {
+  direction: rtl;
+}
+.add-planning .select-hours tr th {
+  text-align: center;
+}
+.add-planning .select-hours tr td a {
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  color: #2777bb;
+  text-align: center;
+}
+.add-planning .select-hours tr td a.selected {
+  background-color: #00c6fe;
+  color: #fff;
+}
+
+.add-planning .select-matiere .matiere-item button {
+  font-weight: bold;
+  border-radius: 15px 3px 0 3px;
+  background-color: #00c7ff;
+  border-color: #00c7ff;
+  width: 160px;
+  text-align: right;
+  padding-right: 5px;
+}
+.add-planning .select-matiere .matiere-item button:focus {
+  border-color: none !important;
+  box-shadow: none;
+}
+.modal .modal-content .modal-footer button {
+  font-weight: bold;
+  border-radius: 15px 3px 15px 3px;
+}
+/* customize template for calendar */
+.custom-day {
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
+}
+.custom-day.focused {
+  background-color: #e6e6e6;
+  color: white;
+}
+.custom-day.range {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+.custom-day.faded {
+  background-color: rgba(2, 117, 216, 0.5);
+  color: white;
+}
+.custom-day.faded:hover {
+  background-color: rgb(2, 117, 216);
+  color: white;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: #ffc107;
+  display: inline-block;
+  margin-right: 6px;
+  font-size: large;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  margin-bottom: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8888886b;
+  border-radius: 50px;
+}

@@ -1,0 +1,132 @@
+#histo {
+  padding-bottom: 15px;
+  border-radius: 37px 5px 5px 5px;
+}
+
+ul,
+#myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+.caret-child {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: #ffc107;
+  display: inline-block;
+  margin-right: 6px;
+  font-size: large;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+li.titre1 {
+  margin-bottom: 3px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}
+li.titre2 {
+  font-weight: 200;
+  color: #313131;
+  cursor: pointer;
+}
+.caret-child::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+  transform: rotate(180deg);
+}
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */
+  transform: rotate(90deg);
+}
+
+.nested {
+  display: none;
+  margin-right: 20px;
+}
+.nested-child {
+  display: none;
+  padding: 5px 0;
+  margin-right: 15px;
+  max-height: 100px;
+  overflow: overlay;
+}
+
+.active {
+  display: block;
+}
+.histo-corps {
+  padding: 10px 16px;
+}
+td.choix {
+  font-size: 22px;
+  color: #2196f3;
+}
+.month {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 37px 0px !important;
+  background-color: #a597e71f;
+  margin-right: 40px;
+  margin-left: 40px;
+  font-size: 20px;
+  padding: 1px 0px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.25);
+  color: #2196f3;
+}
+.titre {
+  direction: rtl;
+}
+.divchoix {
+  width: 311px;
+}
+.historique {
+  color: aliceblue;
+  margin-bottom: 0px !important;
+  background-color: #a597e7;
+  box-shadow: 2px 3px 1px 0px #a597e7;
+}
+select.selectedhist {
+  padding: 10px;
+  background: #6fb0f4;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  /* background-color: #e0e0e0; */
+  /* color: #1d1a1a; */
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  margin-bottom: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8888886b;
+  border-radius: 50px;
+}

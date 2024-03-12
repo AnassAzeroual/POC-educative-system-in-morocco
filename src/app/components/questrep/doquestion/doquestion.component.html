@@ -1,0 +1,232 @@
+
+<div  id="tabs2">
+  <div class="container">
+    <br>
+    <!-- Nav pills -->
+    <ul class="nav nav-pills" role="tablist">
+        <li class="nav-item" >
+          <a class="nav-link active" data-toggle="pill" href="#questions">  السؤال الحالي</a>
+        </li>
+
+    </ul>
+  
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- questions -->
+      <div id="questions" class="container tab-pane active">
+        <div class="dir"><span style="color: grey;font-size: 19px;font-weight: bold;">الموضوع</span><span style="width:10px;">:</span><span style="font-size: 18px;"> فهم الفكرة </span></div>
+        <!--question-->
+        <div class="question row">
+          <div class="col-md-3">
+            <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+            </tr>
+            <tr></tr>
+            <tr><span class="reponse"> </span></tr>
+            <tr  style="position:relative;"><div (click)="showformrep()"  class="statut " style="
+                position: absolute;
+                background-color: #48b2e4;
+                border-color: #48b2e4;
+                border-radius: 13px 3px;
+                box-shadow: 1px 1px 2px 1px #c4c7ca;
+                width: 51px;
+                padding-top: 3px;
+                text-align: center;
+                left: 35px;
+                bottom: 11px;
+                cursor:pointer;
+                /* right: 123px; */
+          "><i  class="fas fa-comment" style="
+              font-size: 22px;
+              color: white;
+          "></i></div><div (click)="showformrep()"  class="statut1" style="
+              position: absolute;
+              left: 54px;
+              /* top: 67px; */
+              color: #48b2e4;
+              bottom: 18px;
+              font-size: 18px;
+          ">...</div></tr>
+          </div>
+          <div class="col-md-9">
+           <table>
+            <tbody>
+              <tr class="title_tr">واجب منزلي</tr>
+              <tr class="msg-comt"> <p style="font-size: 15px;font-weight: bold;margin-bottom: 10px;">صباح الخير جميعا،
+
+                  بالنسبة لأولئك الذين يجتازون البكالوريا هذا العام ، تتوفر الآن منطقة مراجعات لمساعدتك!
+                  
+                  سواء كنت في السنة الأولى أو النهائية ، يمكنك الوصول إلى جميع موضوعات السجلات للتطبيق ، وكل ما يتطلبه الأمر هو مراجعة المفاهيم المرتبطة.
+                  
+                  ستكون المساحة متاحة حتى نهاية عمليات اللحاق بالركب في 11 يوليو.</p></tr>
+              <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">ali</span><img  src="./assets/img/Avatar/004-girl.png" class="icon" width="35px" height="35px"></tr>
+            </tbody>
+           </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+  <div  id="tabs2">
+      <div class="container">
+        <br>
+        <div *ngIf="showedform">
+          <div class="form-rep form-group">
+            <div style="direction: rtl;    font-size: 18px;
+            color: grey;"><p>جوابي :</p></div>
+            <textarea rows="3" class="form-control"></textarea>
+            <div  class="check"><input  checked="" name="isAutoSubscribed" type="checkbox"> انذاري برسالة الكترونية عند وجود اجوبة او تعاليق </div>
+          </div>
+          
+          <button (click)="return()" class="btn btn-success btn-raduis">اضف</button>
+          <button (click)="return()" class="btn btn-raduis btn-danger">الغي</button>
+        </div>
+        <!-- Nav pills -->
+        <ul *ngIf="!showedform" class="nav nav-pills" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="pill" href="#reponses">جميع الاجوبة</a>
+            </li>
+        </ul>
+      
+        <!-- Tab panes -->
+        <div  *ngIf="!showedform" class="tab-content">
+          <!-- questions -->
+          <div id="questions" class="tab-pane active">
+            <!--question-->
+            <div  class="question" style="    background-color: white;    margin-top: 10px;">
+                <div class="row" style="padding-right: 13px;padding-left: 13px;">
+                    <div class="col-md-3">
+                      <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                          <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                      </tr>
+                      <tr><span class="reponse"> </span></tr>
+                      <tr  style="position:relative;" ><span  class="statut" style="
+                            position: absolute;
+                            background-color: #48b2e4;
+                            border-color: #48b2e4;
+                            border-radius: 13px 3px;
+                            box-shadow: 1px 1px 2px 1px #c4c7ca;
+                            width: 51px;
+                            padding-top: 3px;
+                            text-align: center;
+                            left: 35px;
+                            bottom: 11px;
+                            cursor:pointer;
+                            /* right: 123px; */
+                    "><i  class="fas fa-comment" style="
+                        font-size: 22px;
+                        color: white;
+                    "></i></span><span class="statut1"><i class="fas fa-plus"></i></span></tr>
+                    </div>
+                    <div class="col-md-9">
+                     <table>
+                      <tbody>
+                        <tr class="reponse-comt" style="    font-size: 15px;font-weight:bold;"> <p>بالنسبة لأولئك الذين يجتازون البكالوريا هذا العام ، تتوفر الآن منطقة مراجعات </p></tr>
+                        <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">aliennor140</span><img src="./assets/img/Avatar/003-girl.png" class="icon" width="35px" height="35px"></tr>
+                      </tbody>
+                     </table>
+                    </div>
+                    </div> 
+                    <div class="" style="padding-right: 13px;padding-left: 13px;">
+                        <div class="numcom" style="    direction: rtl;
+                        margin: 0px 7px 0px 7px;
+                        /* padding-top: 1px; */
+                        color: #098fcc;
+                        font-size: 21px;
+                        height: 30px;
+                        border-top: 1px dashed #827e7e;"><span class="number">(1)</span> تعليق :</div>
+                              <!--reponse-->
+                              <div class="row rep" style="padding: 6px 13px;">
+                              <div class="col-md-3">
+                                <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                                    <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                                </tr>
+                                <tr></tr>
+                              </div>
+                              <div class="col-md-9">
+                               <table>
+                                <tbody>
+                                  <tr class="reponse-comt" style="    font-size: 17px;font-weight:bold;"><p class="textrep">فهم الفكرة</p></tr>
+                                  <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">ali</span><img src="./assets/img/Avatar/004-girl.png" class="icon" width="35px" height="35px"></tr>
+                                </tbody>
+                               </table>
+                              </div>
+                              </div>  
+                              
+                      </div> 
+            </div>
+
+            <!--question-->
+            <div  class="question" style="    background-color: white;    margin-top: 10px;">
+                <div class="row" style="padding-right: 13px;padding-left: 13px;">
+                    <div class="col-md-3">
+                      <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                          <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                      </tr>
+                      <tr><span class="reponse"> </span></tr>
+                      <tr  style="position:relative;" ><span  class="statut" style="
+                        position: absolute;
+                        background-color: #48b2e4;
+                        border-radius: 13px 3px;
+                        width: 51px;
+                        padding-top: 3px;
+                        text-align: center;
+                        left: 35px;
+                        bottom: 11px;
+                        /* right: 123px; */
+                    "><i  class="fas fa-comment" style="
+                        font-size: 22px;
+                        color: white;
+                    "></i></span><span class="statut1"><i class="fas fa-plus"></i></span></tr>
+                    </div>
+                    <div class="col-md-9">
+                     <table>
+                      <tbody>
+                        <tr class="reponse-comt" style="    font-size: 15px;font-weight:bold;"> <p>بالنسبة لأولئك الذين يجتازون البكالوريا هذا العام ، تتوفر الآن منطقة مراجعات </p></tr>
+                        <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">aliennor140</span><img src="./assets/img/Avatar/003-girl.png" class="icon" width="35px" height="35px"></tr>
+                      </tbody>
+                     </table>
+                    </div>
+                    </div> 
+                    <div class="" style="padding-right: 13px;padding-left: 13px;">
+                        <div class="numcom" style="    direction: rtl;
+                        margin: 0px 7px 0px 7px;
+                        /* padding-top: 1px; */
+                        color: #098fcc;
+                        font-size: 21px;
+                        height: 30px;
+                        border-top: 1px dashed #827e7e;"><span class="number">(1)</span> تعليق :</div>
+                              <!--reponse-->
+                              <div class="row rep" style="padding: 6px 13px;">
+                              <div class="col-md-3">
+                                <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                                    <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                                </tr>
+                                <tr></tr>
+                              </div>
+                              <div class="col-md-9">
+                               <table>
+                                <tbody>
+                                  <tr class="reponse-comt" style="    font-size: 17px;font-weight:bold;"><p class="textrep">فهم الفكرة</p></tr>
+                                  <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">ali</span><img src="./assets/img/Avatar/004-girl.png" class="icon" width="35px" height="35px"></tr>
+                                </tbody>
+                               </table>
+                              </div>
+                              </div>  
+                              
+                      </div> 
+            </div>
+  <!--end question-->
+
+          </div>
+
+        </div>
+      </div>
+      </div>

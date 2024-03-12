@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+
+    <app-bouton-home></app-bouton-home>
+
+      <!-- Blog Post -->
+      <div class="mb-4" id="accueil">
+        
+       <div class="box_border_top_style"> <!-- fatima -->
+
+         <div class="card-title matiere turquoise rtl"> المواد  </div>
+
+         <div  class="card mb-4 info-matiere" *ngFor="let obj of objectsMat; let i=index" >
+           <div class="card-body title-matiere">
+             <table class="rtl" >
+                     <tr routerLink="/blocs" fragment="{{matieres[i]['libelle_objet']}}" (click)="getMatiere_click(matieres[i])">
+                       <td class="td-img-mat td-notif"><img class="img-mat-1" src="./assets/img/images/{{matieres[i]['code_objet']}}.png" alt="" height="40" width="38"></td>
+                       <td class="nom-mat" ><div class="link" (click)="getMatiere_click(matieres[i])">{{matieres[i]['libelle_objet']}}</div></td>
+
+                       <td class="td-progress"><div class="progress">
+                             <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" [ngStyle]="{'width': getprogress(obj['quiz']['pourcentage_reponses_justes'])}"  aria-valuemin="0" aria-valuemax="100"></div>
+                           </div>
+                        </td>
+                       <td class="td-note">{{obj['quiz']['note_noeud']}}/20</td>
+                     </tr>
+             </table>
+           </div>
+           <div  *ngIf="obj?.code==matieres[i]['code_objet']" class="rtl card-footer text-muted res-mat " id="1"  style="display:none;">
+             <span class="info-mat">{{obj['quiz']['nombre_quiz_total']}} اختبار متاح : </span>
+             <span > {{obj['quiz']['nombre_quiz_traités']}} اجابة  , منها {{obj['quiz']['nombre_quiz_reponses_justes']}} صحيحة و {{obj['quiz']['nombre_quiz_reponses_fausses']}} للمراجعة</span>
+         </div>
+         </div>
+        </div>
+      </div>
+
+      </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-3 colonne2">
+
+      <box-sidebar template="accueil"></box-sidebar>
+
+    </div>
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+<app-footer></app-footer>

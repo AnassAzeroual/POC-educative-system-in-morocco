@@ -1,0 +1,39 @@
+.footer {
+  margin-top: 10px;
+  direction: rtl;
+  background-color: #48b2e4;
+  position: absolute;
+}
+
+.footer .support {
+  color: white;
+}
+.footer .support ul {
+  list-style: none;
+  padding-right: 0;
+}
+.footer .support ul li > i {
+  margin-left: 5px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.1s ease-in;
+}
+.footer .support ul li:hover i {
+  opacity: 1;
+}
+.footer .support ul li a {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.7;
+}
+.footer .support ul li a:hover {
+  opacity: 1;
+}
+
+#modal_Bugs .modal-body {
+  direction: rtl;
+}
+
+.btn-radius {
+  border-radius: 15px 3px;
+}

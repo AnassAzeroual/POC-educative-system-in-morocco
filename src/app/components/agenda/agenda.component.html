@@ -1,0 +1,113 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+  <div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+      <app-bouton-home></app-bouton-home>
+      <!--============================-->
+      <div _ngcontent-c12="" class="box_border_top_style mb-4" id="agenda">
+        <div class="card-title matiere turquoise rtl titre">
+          <span _ngcontent-c10="" class="spanicon">
+            <i _ngcontent-c10="" class="fas fa-calendar-alt"></i
+          ></span>
+          <span _ngcontent-c10="" class="spantitre">مذكرة </span>
+        </div>
+
+        <div class="titre2">
+          <ng-fullcalendar
+            #ucCalendar
+            [options]="calendarOptions"
+            (viewRender)="viewRender($event.detail)"
+            (eventRender)="render($event.detail)"
+            (eventClick)="eventClick($event.detail)"
+            (eventResize)="resizeEvent($event.detail)"
+            (select)="selectEvent($event.detail)"
+          ></ng-fullcalendar>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-3 colonne2">
+      <box-sidebar template="calendar"></box-sidebar>
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+<app-footer></app-footer>
+
+<!--=============================-->
+  <div  id="calendarModal" class="modal" style="overflow-y: hidden;" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="direction:rtl;" >
+      <div class="modal-content">
+        <div class="modal-body" >
+          <button type="button" (click)="Close_modal_agenda()" class="close closed" style="margin-top:-0;">&times;</button>
+          <h1 style="text-align:center;color:blue; margin-top:-10px;">{{titleModal}}</h1>
+          <br>
+          <label>لدي :</label>
+          <div class="cc-selector" style="margin-top:-10px; margin-right: 11%;">
+            <input id="controle" class="radiovalue2 ak2" type="radio" name="radioTitle" value="فرض" style="margin:0 5px 0 25px;"/>
+            <label class="drinkcard-cc controle" style=" background-image: url(./assets/img/images/calendar/controle.png);" for="controle" name="none"></label>
+            <input id="devoir" class="radiovalue2 ak2" type="radio" name="radioTitle" value="واجبات" style="margin:0 5px 0 15px;"/>
+            <label class="drinkcard-cc devoir" style="background-image: url(./assets/img/images/calendar/devoirs.png);" for="devoir"></label>
+            <input id="cours" class="radiovalue2 ak2" type="radio" name="radioTitle" value="دروس" style="margin:0 5px 0 15px;"/>
+            <label class="drinkcard-cc cours" style="background-image: url(./assets/img/images/calendar/cours.png);" for="cours"></label>
+            <input id="vacance" class="radiovalue2" type="radio" name="radioTitle" value="عطلة" style="margin:0 5px -20% 15px;"/>
+            <label class="drinkcard-cc vacance" style="background-image: url(./assets/img/images/calendar/vacances.png);" for="vacance"></label>
+            <input id="autre" class="radiovalue2 ak2" type="radio" name="radioTitle" value="انشطة متنوعة" style="margin:0 5px 0 15px;"/>
+            <label class="drinkcard-cc autre" style="background-image: url(./assets/img/images/calendar/Autre.png);" for="autre"></label>
+          </div>
+          <br>
+          <label>الوصف :&nbsp;</label>
+          <input class="form-control middle mdescription2"   [(ngModel)]="description" autocomplete="off" type="text" value="" style="margin-top:0%;"/>
+          <br>
+          <br>
+          <label>المادة</label>
+          <select class="form-control mmatiere2" [(ngModel)]="selectedmatiere">
+            <option value="الرياضيات">الرياضيات</option>
+            <option value="الفيزياء-الكيمياء">الفيزياء-الكيمياء</option>
+            <option value="الإنجليزية">الإنجليزية</option>
+          </select>
+          <br><br>
+          <label>اللون</label>
+          <select id="mcolors" class="form-control colorsUpdate  mcolor2" [(ngModel)]="selectedcolor">
+            <option value="lightblue" id="0">تغيير اللون</option>
+            <option value="orange" id="1">برتقالي</option>  
+            <option value="skyblue" id="2"> أزرق </option>
+            <option value="pink" id="3"> وردي</option>  
+            <option value="yellow" id="4">أصفر</option>  
+            <option value="coral" id="5">بنى</option>  
+            <option value="lightgreen" id="6">أخضر فاتح</option> 
+            <option value="chocolate" id="7">شوكولاتي</option>
+          </select>
+          <div class="checkbox">
+            <label class="check">
+              <input type="checkbox" class="mfinished2" value="0" [(ngModel)]="finished"/>
+                    المهمة منتهية؟
+            </label>
+            <br><br>
+            <div style="">
+            <label id="modal2time">وقت الحدث هو :</label>
+            <label style="display:none;" id="modal2days">أيام الحدث هم :</label>
+            <div id="time2" style=""> من : 
+              <input type="number" id="startMinutes2" class="input" name="startMin2"   placeholder=""  step="15" min="00" max="45" [(ngModel)]="modal.start_minute" value="{{modal.start_minute}}"/>
+              <span class="validity"></span>  :  
+              <input type="number" id="startHour2" class="input" name="startHH2"   placeholder="" step="01" min="00" max="23" [(ngModel)]="modal.start_hour" value="{{modal.start_hour}}"/>
+              <span class="validity"></span> إلى :
+              <input type="number" id="endMinutes2" class="input" name="endMin2"   placeholder=""  step="15" min="00" max="45" [(ngModel)]="modal.end_minute"  value="{{modal.end_minute}}"/>
+              <span class="validity"></span>  :  
+              <input type="number" id="endHour2" class="input" name="endHH2"   placeholder="" step="01" min="00" max="23" [(ngModel)]="modal.end_hour" value="{{modal.end_hour}}"/>
+              <span class="validity"></span></div>
+            </div>
+          </div>
+     </div>
+     <div class="modal-footer">
+      <button type="button" style="float:right;" class="btn btn-danger footer" (click)="Close_modal_agenda()" ><i class="ace-icon fa fa-times"></i>إلغاء</button>
+      <button *ngIf="DeleteEvent" (click)="deletedata()" class="btn btn-warning footer" style="float:left;" type="button"><i  class="ace-icon fa fa-trash"></i>إزالة</button>
+      <button style="float:left;" (click)="savedata()"  type="submit" class=" form-group btn btn-success footer"><i class="ace-icon fa fa-check"></i>حفظ</button>
+     </div>
+    </div>
+   </div>
+  </div>

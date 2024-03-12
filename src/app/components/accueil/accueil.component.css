@@ -1,0 +1,26 @@
+#accueil{
+    margin-top: 0px;
+
+}
+.card-body.title-matiere:hover {
+    background-color: #c4d3d4 !important;
+}
+
+.link{
+    color:#007bff !important;
+}
+.link:hover{
+    color:#0056b3 !important;
+}
+.border-rad-normal{
+    border-radius: 20px 0px 0px 0px;
+
+}
+.transition{
+    transition: -webkit-transform .3s ease-out; 
+    transition: transform .3s ease-out; 
+    transition: transform .3s ease-out, -webkit-transform .3s ease-out; 
+}
+.res-mat:hover+.title-matiere{
+    border-radius: 20px 0px 0px 0px;
+}

@@ -1,0 +1,109 @@
+.plus-info{
+    background-color: #0062cc;
+}
+.sp2{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000 !important;
+    margin-right: 6px;
+}
+.nom{
+    font-weight: bold;
+}
+.btn_radius{
+    border-radius: 15px 3px 15px 3px;
+    font-weight: bold;
+}
+.arbre:hover {
+    text-decoration: underline;
+    cursor:pointer;
+}
+.cursorauto{
+    cursor: auto;
+}
+/* @media screen and (max-width: 991px) and (min-width: 50px) {
+
+} */
+/* @media screen and (min-width : 1200px){
+    .logo{
+        margin-left: 268px;
+    }
+}
+@media (max-width : 1199px) and (min-width: 991px){
+    .logo {
+        margin-left: 92px;
+    }
+} */
+/* responsive add by anass */
+@media screen and (min-width : 1200px){
+    .importent_width_of_parent{
+        /* width: 256px !important; */
+    }
+    .logo{
+        margin-left: 165px;
+        margin-bottom: 6px;
+    }
+    .importent_marginTop{
+        margin-top: 0px !important;
+    }
+    .importent_height{
+        height: 85px !important;
+    }
+    .importent_padding_bottom{
+        /*padding-bottom: 0px !important;*/
+    }
+}
+@media (max-width : 1199px) and (min-width: 991px){
+    .importent_width_of_parent{
+        /* width: 256px !important; */
+    }
+    .logo {
+        margin-left: 30px;
+        margin-bottom: 6px;
+    }
+    .importent_marginTop{
+        margin-top: 0px !important;
+    }
+    .importent_height{
+        height: 77px !important;
+    }
+    .importent_padding_bottom{
+        padding-bottom: 0px !important;
+    }
+}
+@media (max-width : 991px){
+    .importent_width_of_parent{
+        width: 100% !important;
+    }
+    .img-circle{
+        width: 100% !important;
+    }
+    .lg_center{
+        padding-left: 0px;
+    }
+}
+
+a.btn.btn-danger.text-white.btn_radius {
+    margin-right: 7px;
+    margin-top: 1px;
+}
+.progr {
+    border: 1px solid #dcd8d8;
+    border-radius: 17px;
+}
+.p1{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000 !important;
+    margin-right: 6px;
+}
+span.p3,span.sp1 {
+    color: #17a2b8;
+    font-size: 13px;
+    font-weight: bold;
+}
+.progress-bar{
+    height: 15px;
+    border-top-left-radius: 17px;
+    border-bottom-left-radius: 17px;
+}

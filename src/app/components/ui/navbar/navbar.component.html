@@ -1,0 +1,143 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-dark fixed-top nav-accueil sampleshadownav importent_height importent_padding_bottom" id="addshadownav"><!-- importent_height importent_padding_bottom add by anass -->
+  <div class="container marg-right">
+    
+    <p class="navbar-brand d-lg-none" style="margin-bottom:0;"><img src="./assets/img/images/logo_home.png" alt=""></p>
+    <button id="btn_nav_toggle" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon my-toggler icon_toggle"><i class="fa fa-bars navtoggle "></i></span>
+    </button>
+      <div class="container ">
+         <div class="row ">
+             <div class="col-sm-12 col-sm-offset-3">
+                 
+        <div class="collapse navbar-collapse col-sm-8" id="navbarResponsive">
+          <div class="input-group search-div">
+            <form method="get" action="/search" id="search" class="rtl sm_search">
+               <input class="rtl" name="search" type="text" size="40" placeholder="بحث..." />
+           </form>
+          </div>
+           
+          <ul class="navbar-nav ml-auto lg_center">
+            <li class="nav-item active dropdown dmenu ">
+              <a class="nav-link item-nav-accueil  dropdown-toggle " data-toggle="dropdown"  href="#"><i class="icon-1 icon-user fa fa-user"></i><span class="span-1 span-user">بياناتي الشخصية  </span></a>
+              <div class="dropdown-menu sm-menu profile-menu importent_marginTop importent_width_of_parent" >
+                  <div class="container-fluid well span6">
+                      <div class="row row-fluid">
+                            <div class="span2 col-md-4" >
+                            <a [routerLink]="['/profil']"> 
+                              <img src="./assets/img/Avatar/{{profile?.avatar_user}}.png" class="img-circle">
+                            </a>
+                            </div>
+                            
+                            <div class="span8 col-md-8">
+                              <table> <!-- add by anass in order to organize -->
+                                <tr class="cursorauto"><td colspan="2"><h3 class="nom"> {{profile?.login_user}}</h3></td></tr>
+                                <tr class="cursorauto">
+                                  <td><span class="sp1" style="font-weight: bold;"> {{profile?.libelle_type_ecole}}  </span></td>
+                                  <td style="width:60px;"><h6><span class="sp2"><span class="float-left">:</span> المستوى  </span> </h6></td>
+                                </tr>
+                                <tr class="cursorauto">
+                                  <td><span class="sp1" style="font-weight: bold;">{{profile?.nom_classe}}</span></td>
+                                  <td><h6> <span class="sp2"> <span class="float-left">:</span> الشعبة</span> </h6></td>
+                                </tr>
+                                <tr class="cursorauto">
+                                    <td [routerLink]="[ '/arbre']"><a class="sp1" style="font-weight: bold;"><img src="assets/img/images/tree.png" alt="" srcset=""></a></td>
+                                    <td [routerLink]="[ '/arbre']" class="arbre"><h6> <span class="sp2"> <span class="float-left">:</span> الشجرة</span> </h6></td>
+                                  </tr>
+                              </table>
+                              <div class="btn-group">
+                                  <a class="btn btn-danger text-white btn_radius" (click)="destroyAllLogout()">
+                                      الخروج
+                                      <i class="fas fa-sign-out-alt"></i>
+                                  </a>
+                                </div>
+                                <div class="btn-group">
+                                    <a class="btn btn-info plus-info btn_radius" [routerLink]="['/profil']">
+                                        المزيد
+                                        <i _ngcontent-c2="" class="fas fa-user-alt" style="padding-bottom: 0px;"></i>
+                                    </a>
+                                  </div>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item dropdown dmenu ">
+              <a class="nav-link item-nav-accueil dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-1 icon-activity fa fa-space-shuttle"></i><span class="span-1 span-activity">أنشطة  </span></a>
+              <div class="dropdown-menu sm-menu importent_marginTop text-right" style="left:-83px;width: 203px;"><!-- importent_marginTop & text-right add by anass -->
+               <div class="dropdown-item l1" href="#" style="font-weight: bold;text-align: center;">   نتيجتي  :  {{result['note_noeud']}}/20 </div>
+               <div class="dropdown-item l2" href="#">
+                 <div class="progr">
+                   <span class="progress-bar progress-bar-striped bg-warning" role="progressbar" [ngStyle]="{'width': getprogress(result['pourcentage_reponses_justes'])}"  aria-valuemin="0" aria-valuemax="100">
+                  </span>
+                </div>
+              </div>
+               <table  style="direction:rtl;padding: 2px;margin-right: 6px;margin-left: 2px;">
+                  <tbody>
+                      <tr>
+                          <td><span class="p1" >التمارين المنجزة</span></td>
+                          <td><span class="p2" >:</span></td>
+                          <td>
+                              <span class="p3">
+                               <strong>{{result['nombre_quiz_traités']}}</strong>
+                                من {{result['nombre_quiz_total']}}
+                              </span>
+                          </td>
+                        </tr>
+                      <tr>
+                         <td><span class="p1">التمارين الصحيحة</span></td>
+                         <td><span class="p2" >:</span></td>
+                         <td>
+                             <span class="p3">
+                              <strong>{{result['nombre_quiz_reponses_justes']}}</strong>
+                               من  {{result['nombre_quiz_traités']}}
+                             </span>
+                         </td>
+                       </tr>
+                       <tr>
+                          <td><span class="p1" >التمارين الخاطئة</span></td>
+                          <td><span class="p2" >:</span></td>
+                          <td>
+                              <span class="p3">
+                                <strong>{{result['nombre_quiz_reponses_fausses']}}</strong>
+                                   من {{result['nombre_quiz_traités']}}
+                              </span>
+                          </td>
+                       </tr>
+                 </table>
+               
+          
+
+             </div>
+            </li>
+            <li class="nav-item dropdown dmenu">
+              <a class="nav-link item-nav-accueil dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-1 icon-history fa fa-paste"></i>
+               <span class="span-1 span-history">ارشيف </span></a>
+              <div class="dropdown-menu sm-menu importent_marginTop text-right" style="left:-38px;"><!-- importent_marginTop & text-right add by anass -->
+               <a class="dropdown-item" [routerLink]="['/histo']" >تاريخي 1</a>
+               <a class="dropdown-item" href="#">تاريخي الخاص بي 2</a>
+               <a class="dropdown-item" href="#">تاريخي الخاص بي 4</a>
+               <a class="dropdown-item" href="#">تاريخي الخاص بي 5</a>
+             </div>
+            </li>
+            <li class="nav-item dropdown dmenu" >
+              <a class="nav-link item-nav-accueil dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-1 icon-compte fa fa-address-card"></i><span class="span-1">حسابي  </span></a>
+              <div class="dropdown-menu sm-menu importent_marginTop text-right" style="left:-38px;"><!-- importent_marginTop & text-right add by anass -->
+                <a class="dropdown-item" [routerLink]="['/compte']" fragment="info_compte"> معلومات الحساب</a>
+                <a class="dropdown-item" [routerLink]="['/compte']" fragment="info_perso"> معلومات خاصة</a>
+                <a class="dropdown-item" [routerLink]="['/compte']" fragment="services">  خدمات</a>
+                <!-- <a class="dropdown-item" [routerLink]="['/controle']">  controle</a> -->
+             </div>
+            </li>
+          </ul>
+          <div class="nav-item logo">
+            <p class="nav-link" style="margin-bottom:0px;"><img style="width:140px;" src="./assets/img/images/logo_home.png" class="" alt=""></p><!-- margin-buttom add by anass -->
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+
+  
+    </div>
+</nav>

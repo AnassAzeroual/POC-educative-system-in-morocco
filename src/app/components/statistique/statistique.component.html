@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+
+<div class="container top_marg">
+    <div class="col-md-12 colonne1">
+        <div class="row">
+          <div class="col-md-9 colonne1">
+              <app-bouton-home></app-bouton-home>
+          </div>
+          <div class="col-md-3 colonne2">
+              <app-note></app-note>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<div class="card container box_global">
+  <div class="header_div raduis_style_template btn-raduis32 bg_profile_title" style="font-size: large;padding: 4px 26px 5px 5px;">
+    <span class="text-primary p-2">
+      <strong> {{user_data?.login_user}}</strong>
+    </span>: مبيان
+    <span> 
+      <img src="assets/img/icons/icone_user_config.png" style="width: 23px;margin: -4px 10px 4px 5px;" alt="">
+    </span>
+  </div>
+  <div class="card-body" style="direction:rtl;">
+      <div>
+          <div class="d-flex flex-row mt-2">
+            <!-- ======================= -->
+              <ul class="nav nav-tabs nav-tabs--vertical nav-tabs--left ul" role="navigation">
+                <li class="" style="padding: 0px 16px;">
+                  <a style="cursor:default">
+                    <img src="assets/img/images/pie-chart.png" class="logo_matiere rootChart" alt="" srcset="">
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#SVT" (click)="clicked_tab('SVT')" class="nav-link active tooltips" data-toggle="tab" role="tab" aria-controls="SVT">
+                      <span class="tooltiptext">علوم الحياة والأرض</span>
+                      <img src="assets/img/images/SVT.png" class="logo_matiere" alt="" srcset="" >
+                  </a>
+                </li>
+              </ul>
+            <!-- ======================= -->
+              <div class="tab-content tab_width">
+                <div class="tab-pane fade show active" id="SVT" role="tabpanel">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item active" aria-current="page">علوم الحياة والأرض</li>
+                    </ol>
+                  </nav>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h3 class="text-center"><span>علوم الحياة والأرض</span></h3>
+                      <div class="text-center" style="font-size: 13px;color: #666;">
+                        <span class="bar"></span> 
+                        <span>التمارين المنجزة</span>
+                      </div>
+                      <div id="M_SVT" class="progress-circle"><span>{{proce_justes}}</span></div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="xsmall">
+                        <h3 class="text-center">النجاح حسب الفصل</h3>
+                        <canvas id="svt">{{chart2}}</canvas>
+                      </div>
+                    </div>
+                    <div style="clear:both"></div>
+                  </div>
+                </div>
+                <!-- ============================ -->
+              </div>
+            </div>            
+      </div>
+  </div><!-- End card-->
+</div>

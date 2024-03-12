@@ -1,0 +1,5 @@
+<div class="btn_left">
+    <a class="btn btn-info btn_marg boutton-home" [routerLink]="['/home']"><i class="fa fa-home"></i></a>
+    <a role="button" (click)="showSubBloc(code)" class="libel" *ngFor="let code of blocCode">/ {{code.libelle_objet}}
+      </a>
+      </div>

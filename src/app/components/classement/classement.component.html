@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+
+    <app-bouton-home></app-bouton-home>
+
+      <!-- classement -->
+      <div class="mb-4" id="classement">
+          <div class="card-title matiere turquoise rtl titre"> <span _ngcontent-c10="" class="spanicon">
+            <i _ngcontent-c10="" class="fas fa-crown"></i></span>
+            <span _ngcontent-c10="" class="spantitre">النتيجة / الترتيب</span> 
+          </div>
+
+        <div class="titre2">
+          <p>   ترتيب المشتركين {{textfirstclass}} في {{profile.nom_classe}}</p>
+        </div>
+        <div><button *ngIf="showfirstbutton"  class="btn button btnscore btn-info" (click)="getFirstClass()">  المشتركون الاوائل<div class="round"></div>
+             </button>
+             <button *ngIf="!showfirstbutton" class="btn button btnscore2 btn-info" (click)="return()">  الرجوع<div class="round2">
+              <i class="fas fa-arrow-left"></i>
+              </div></button>
+        </div>
+        <div class="tablescore">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th scope="col">المرتبة</th>
+              <th scope="col">الحصيلة</th>
+              <th scope="col">اسم التلميذ</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr  id="{{user[0].login_user}}" *ngFor="let user of users" class="user">
+              <td>{{user[0].rank}}</td>
+              <td>{{user[0].score}}</td>
+              <td >{{user[0].login_user}}  <img class="img-mat-1"  src="./assets/img/Avatar/{{user[0].avatar_user}}.png" alt="" height="38" width="38"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+
+    </div>
+
+
+
+
+    <!-- Sidebar Widgets Column -->
+
+
+    
+    <div class="col-md-3 colonne2">
+
+      <box-sidebar template="classement"></box-sidebar>
+    
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+<app-footer></app-footer>

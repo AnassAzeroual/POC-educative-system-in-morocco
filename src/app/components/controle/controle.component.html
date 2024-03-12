@@ -1,0 +1,97 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+
+    <app-bouton-home></app-bouton-home>
+
+      <!-- Blog Post -->
+      <div class="mb-4" id="accueil">
+        
+       <div class="box_border_top_style border_bottom_radius"> <!-- fatima -->
+
+         <div class="card-title matiere turquoise rtl"><i class="fas fa-stopwatch"></i> فروض</div>
+         <!-- partie Controle -->
+         <div class="container">
+           <br>
+           <h3>{{ controleTitle }}</h3>
+           <p class="separateur"></p>
+           <div>
+             <h4>الموضوع</h4>
+             <p>{{ sjt_content }}</p>
+
+             <a href="{{down_sjt}}" download=" {{name_djt}} " class="btn btn_filter" >تحميل الموضوع | <i class="far fa-file-pdf"></i></a>
+           </div>
+           <p class="separateur"></p>
+           <div>
+              <h4>تصحيح</h4>
+              <p>{{ crg_content }}</p>
+              <a href="{{down_crg}}" download=" {{name_crg}} " class="btn btn_filter" >تحميل التصحيح | <i class="far fa-file-pdf"></i></a>
+            </div>
+            <p class="separateur"></p>
+            <div>
+                <h4>لحساب النقطة النهائية</h4>
+                <p>حساب النقاط الخاصة بك عن طريق اتباع مقياس المشار إليه لكل سؤال بشكل صحيح وحساب النتيجة النهائية الخاصة بك. سيكون لديك الفرصة لاستعادة السيطرة في وقت آخر لمراجعة مرة أخرى أو حتى التقدم.</p>
+                <div class="container col-md-12 box_note box_add_comment">
+                  <div class="row height">
+                  <div class="col-md-6 btn_paddin_top position_top absolut">
+                      <span><input type="submit" class="btn btn_filter margin_bottom_3" (click)="func_get_note_comment(notes,commentaires)" value="تاكيد"></span>
+                      <span><input type="submit" class="btn btn_filter" (click)="clear()" value="مسح"></span>
+                  </div>
+                  <div class="col-md-6 absolut">
+                    <form>
+                      <span> 20/ </span> <span><input type="text" name="input_note" id="input_note" class="input_note" maxlength="2" placeholder="0" [(ngModel)]="notes" required #input_note></span> <span> : النقطة</span>
+                      <p class="margin_bottom_3">: تعليق</p>
+                      <textarea placeholder="...تعليق" class="form-control margin_bottom_3" id="input_comment" name="input_comment" maxlength="500" [(ngModel)]="commentaires"  #input_comment></textarea>
+                    </form>
+                  </div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="container box_comment" *ngFor="let one of object_comment">
+              <table>
+                <tr>
+                  <td colspan="2" class="text-left">{{one.date}}</td>
+                </tr>
+                <tr>
+                  <td>{{one.note}}<span>/20</span></td>
+                  <td class="width_fixed"> : نقطة </td>
+                </tr>
+                <tr>
+                  <td rowspan="2">
+                    {{one.comments}}
+                  </td>
+                  <td><span>:تعليق</span></td>
+                </tr>
+              </table>
+            </div>
+         </div>
+
+      </div>
+
+      </div>
+
+    </div>
+
+
+
+
+    <!-- Sidebar Widgets Column -->
+
+    <div class="col-md-3 colonne2">
+       
+      <box-sidebar template="controle"></box-sidebar>
+    
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+<app-footer></app-footer>

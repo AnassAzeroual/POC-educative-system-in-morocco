@@ -1,0 +1,33 @@
+.tooltips {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltips .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgba(0, 0, 0, 0.7);   
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 64px;
+  }
+  
+  .tooltips .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    transform: rotateZ(180deg);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.7) transparent transparent;
+  }
+  .tooltips:hover .tooltiptext {
+    visibility: visible;
+  }

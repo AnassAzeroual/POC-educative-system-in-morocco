@@ -1,0 +1,126 @@
+.annales-matiere-details {
+  /* height: 100vh; */
+  /* border: 1px solid #ccc; */
+  border-radius: 5px;
+  /* background-color: #d7e7ec; */
+}
+.box_border_top_style {
+  background-color: #fff;
+}
+
+.annales-title {
+  text-align: center;
+  margin: 20px 0;
+}
+.annales-title h2 {
+  text-align: center;
+}
+
+.annales-info {
+  direction: rtl;
+  margin: 20px 20px;
+  border: 1px solid #2777bb;
+  border-radius: 0 0px 35px !important;
+}
+.annales-info .annales-recap {
+  font-weight: bold;
+}
+.annales-info tr {
+  cursor: text;
+}
+.annales-info .annales-recap {
+  background-color: #2777bb;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  border-radius: 30px 0px !important;
+}
+
+.annales-info .annales-label {
+  padding: 10px 10px 10px 0;
+  font-weight: bold;
+  width: 85px;
+}
+
+.annales-info .annales-label > span {
+  float: left;
+}
+
+.annales-info .annales-value {
+  text-align: right;
+  padding: 10px 10px 10px 0;
+  color: #17a2b8;
+  font-weight: bold;
+}
+
+.annales-pagination {
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+.annales-pagination .pagination {
+  margin-bottom: 0.625rem;
+}
+.annales-pagination .page-item .page-link {
+  color: #48b2e4;
+}
+.annales-pagination .page-item.active .page-link {
+  background-color: #48b2e4;
+  border-color: #48b2e4;
+  color: #fff;
+}
+
+.annales-list .annale-year {
+  padding: 0px 20px;
+  color: #48b2e4;
+  font-weight: bold;
+}
+
+.annales-list .annale-item {
+  direction: rtl;
+  margin: 10px 20px;
+  opacity: 0.7;
+  border: 1px solid rgba(39, 119, 187, 0.49);
+  border-radius: 37px 0;
+  transition: opacity 250ms ease-in-out;
+}
+
+.annales-list .annale-item:hover {
+  opacity: 1;
+  box-shadow: 0px 2px 5px rgba(39, 119, 187, 0.49);
+}
+
+.annales-list .annale-item .annales-desc > i {
+  margin-left: 10px;
+  color: #2777bb;
+}
+
+.annales-list .annale-item .annales-subject {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0 10px 0;
+}
+
+.annales-list .annale-item .annales-desc {
+  padding-right: 10px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.annales-list .annale-item .annales-interview {
+  padding: 0 30px;
+  font-size: 15px;
+}
+
+.annales-list .annale-item .annales-subject .subject-icon {
+  flex: 0 0 5%;
+  margin-right: 20px;
+  margin-left: 10px;
+}
+.annales-list .annale-item .annales-subject .subject-title {
+  flex-grow: 1;
+  font-weight: bold;
+}
+
+.annales-list .annale-item .annales-subject .subject-sollution {
+  flex: 0 0 10%;
+  margin-left: 30px;
+}

@@ -1,0 +1,212 @@
+<app-navbar [profile]="profile"></app-navbar>
+<div class="container top_marg">
+  <div class="col-md-12 colonne1">
+      <div class="row">
+        <div class="col-md-9 colonne1">
+            <app-bouton-home></app-bouton-home>
+        </div>
+        <div class="col-md-3 colonne2">
+            <app-note></app-note>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="card container box_profile">
+  <div class="header_div raduis_style_template btn-raduis32 bg_profile_title" style="font-size: large;padding: 4px 26px 5px 5px;">
+    <span class="text-primary"><strong> {{profile?.nom_user}} {{profile.prenom_user}} </strong></span>: الملف الشخصي<span> <img src="assets/img/icons/icone_user_config.png" style="width: 23px;margin: -4px 10px 4px 5px;" alt=""></span></div>
+  <div class="card-body">
+      <div class="row">
+        <div class="col-lg-4 profile_div">
+            <div class="height_346 paddingin_right_34"><br><br>
+              <a (click)="modalProfileOpen()" class="add_shadow">
+                <img class="align_img " src="./assets/img/Avatar/{{avatar_src_img}}.png" alt="Avatar !">
+                <p><button class="btn btn_filter btn_edit_avatar">تغيير الصورة</button></p>
+              </a>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card back_color width_tab2">
+            <div class="card-body height_346 rtl">
+                <p class="text-center text-primary">
+                  <strong>
+                    {{profile.nom_user}} {{profile.prenom_user}}
+                  </strong>
+                </p>
+                <p class="separateur"></p>
+              <table>
+                  <tr>
+                      <td class="td_width_style">
+                        <p class="text-right">إسم المستخدم</p>
+                      </td>
+                      <td class="td_profile_style">
+                        <p>: <span class="text-info marg_right">{{LoginName}}</span>
+                          <span> 
+                              <input 
+                                 type="submit"
+                                 data-toggle="modal"
+                                 id="myBtn"
+                                 data-target="#modal_login_name"
+                                 (click)="inits()"
+                                 class="btn btn_filter btn_mrg"
+                                 value="تغير"
+                              />
+                            </span>
+                        </p>
+                      </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-right">تاريخ آخر اتصال </p>
+                    </td>
+                    <td>
+                      <p>: <span class="text-info marg_right"> {{profile.date_modification_user}}</span></p>
+                    </td>
+                  </tr>
+                  <tr>
+                      <td>
+                          <p class="text-right rtl">  دور المستخدم</p>
+                      </td>
+                      <td>
+                          <p>: <span class="text-info marg_right"> {{profile.type_user}}</span></p>
+                      </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p class="text-right rtl">تاريخ الانضمام </p>
+                        </td>
+                        <td>
+                            <p>: <span class="text-info marg_right"><b> {{profile.date_creation_user}}  </b></span></p>
+                        </td>
+                      </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        <div class="col-lg-4 ">
+          <div class="card back_color width_tab">
+            <div class="card-body height_346 rtl">
+                <div>
+                    <p class="text-right ">
+                      <img src="./assets/img/icons/{{profile.icon_score}}.png" alt="image Score" class="float-right clearfix img_margin_bottom" >
+                      <span class="text-success" id="lib_score"> {{profile.libelle_score}} </span>
+                    </p>
+                    <p class="separateur"></p>
+                    <table>
+                        <tr>
+                            <td>
+                              <p class="text-right">المدرسة</p>
+                            </td>
+                            <td class="td_profile_style">
+                              <p>: <span class="text-info marg_right">{{profile.libelle_type_ecole}}</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <p class="text-right">المستوى</p>
+                          </td>
+                          <td>
+                            <p>: <span class="text-info marg_right"> {{profile.libelle_niveau}}</span></p>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="text-right rtl">الشعبة</p>
+                            </td>
+                            <td>
+                                <p>: <span class="text-info marg_right"> {{profile.nom_classe}}</span></p>
+                            </td>
+                          </tr>
+                          <tr>
+                              <td>
+                                  <p class="text-right rtl">الحصيلة</p>
+                              </td>
+                              <td>
+                                  <p>: <span class="text-info marg_right"><b> {{profile.score}} نقطة  </b></span></p>
+                              </td>
+                            </tr>
+                        <tr>
+                          <td>
+                              <p class="text-right rtl">المرتبة</p>
+                          </td>
+                          <td>
+                              <p>: <span class="text-info marg_right"> {{ profile.rank }} </span></p>
+                          </td>
+                        </tr>
+                    </table>
+                    
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- End card-->
+  </div>
+</div>
+
+<!-- Modal Profile -->
+<div id="modalProfile" class="modal">
+<div class="modal-content animated" id="animate_Style_Profile">
+    <div>
+        <h5 id="ModalLongTitle">تغيير الصورة الرمزية</h5>
+    </div>
+    <div class="modal-body height_cls">
+      <hr>
+      <div class="ajust" >
+        <div *ngFor="let item of girl_Avatars">
+            <img class="avatar_width" src="{{ item.src }}" id="{{ item.id }}"
+             (click)="avatarSelected(item.id)" [ngClass]="{'bordred': id_avatar_selected === item.id }" (click)="addClass(item.id)" alt="{{ item.name }}" title="{{ item.name }}">
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn_filter" (click)="modalProfileClose()">أغلق</button>
+      <button type="button" class="btn btn_filter" (click)="saveNewAvatar()">حفظ التغييرات</button>
+    </div>
+  </div>
+</div>
+
+  <!-- The Modal -->
+<div id="myModal" class="modal ">
+<div class="login-modal-content card animated" id="animate_Style_User">
+    <div class="modal-header rtl">
+      <h4 class="modal-title"> تغيير إسم المستخدم</h4>
+    </div>
+    
+    <div class="modal-body" style="padding-right: 60px;padding-bottom: 6px;">
+      <table>
+          <tr style="margin-bottom:10px">
+              <td><span aria-readonly="true"> <input type="text" class="login_input form-control ajust_table no_drop" value="{{LoginName}}" readonly></span></td>
+              <td><label for="" ><span style="margin-right:2px;">:</span>الإسم الحالي</label></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="login_input form-control ajust_table" id="input_login_name" value="{{ newPropositionLogin }}" placeholder="...إسم المستخدم" #newLoginName></td>
+                <td> <label for=""><span class="deux_point">:</span>الإسم الجديد</label> </td>
+              </tr>
+              <tr *ngIf="showProposition" >
+                  <td><p class="text-success pointer" id="proposition" (click)="doProposition(propositionLogin)">{{ propositionLogin }}</p></td>
+                  <td> <label for="" class="text-info"><span style="margin-right: 90px;color:black;">:</span> اقتراح</label> </td>
+              </tr>
+      </table>
+        <div class="form-group" >
+            
+            
+          </div>
+        <div class="container text-danger response_msg_style" *ngIf="msgExistName">!إختر إسماً أخر</div>
+        <div class="container text-success response_msg_style" *ngIf="msgSuccessName">لقد تم تغير الإسم بنجاح</div>
+    </div>
+    
+    <div class="modal-footer">
+      <button type="button" class="btn btn_filter" (click)="modalsClose()">أغلق</button>
+      <button type="button" class="btn btn_filter" (click)="change_login_name(newLoginName.value)" >حفظ التغييرات</button>
+    </div>
+  </div>
+
+</div>

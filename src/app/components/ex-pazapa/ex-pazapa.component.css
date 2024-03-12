@@ -1,0 +1,12 @@
+#ifram_cours {
+  width: 100%;
+  height: 100vh;
+}
+
+img.print {
+  width: 5.5%;
+  position: absolute;
+  left: 16px;
+  top: 53px;
+  cursor: pointer;
+}

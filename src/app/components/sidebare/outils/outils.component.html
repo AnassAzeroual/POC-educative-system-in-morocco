@@ -1,0 +1,40 @@
+<div class="card my-4 card-accueil">
+  <h5 class="card-header turquoise text-white rtl">أدوات</h5>
+  <div class="card-body No_space">
+    <div class="row">
+      <div class="col-lg-12">
+        <table class="table table-hover No_space rtl">
+          <tr>
+            <td [routerLink]="['/agenda']" class="td">
+              <a [routerLink]="['/agenda']" class="text-primary ho"
+                ><i class="fa fa-tags" aria-hidden="true"></i>مذكرة
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="td">
+              <a href="#" class="ho"
+                ><i class="fa fa-tags" aria-hidden="true"></i>قاموس
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td [routerLink]="['/annales']" class="td">
+              <a [routerLink]="['/annales']" class="text-primary ho">
+                <i class="fa fa-tags" aria-hidden="true"></i>إمتحانات جهوية /
+                وطنية
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td [routerLink]="['/planning']" class="td">
+              <a [routerLink]="['/planning']" class="text-primary ho">
+                <i class="fa fa-tags" aria-hidden="true"></i>جدول المراجعة</a
+              >
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

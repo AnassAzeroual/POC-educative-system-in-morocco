@@ -1,0 +1,106 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+  <div class="row">
+    <!-- histo Entries Column -->
+    <div class="col-md-9 colonne1">
+      <app-bouton-home></app-bouton-home>
+
+      <!-- histo -->
+      <div class="mb-4" id="histo">
+        <div class="box_border_top_style">
+          <div class="card-title matiere turquoise rtl">
+            <i class="fa fa-paste"></i> ارشيف
+          </div>
+
+          <div class="histo-corps">
+            <div class="titre">
+              <table class="divchoix">
+                <tbody>
+                  <tr class="ligne1">
+                    <td class="choix">
+                      <i class="fa fa-hand-o-left"></i> اختر الشهر:
+                    </td>
+                    <td class="dates">
+                      <select
+                        #t
+                        class="selectedhist"
+                        [(ngModel)]="selectedGroup"
+                        (change)="changedValue($event)"
+                      >
+                        <option
+                          [value]="month"
+                          [attr.year]="previousmonths.years[i]"
+                          *ngFor="
+                            let month of previousmonths.months;
+                            let i = index
+                          "
+                        >
+                          {{ month }} {{ previousmonths.years[i] }}
+                        </option>
+                      </select>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="month">{{ selectedGroup }} {{ year }}</div>
+
+            <div class="tree" style="margin-top: 10px;">
+              <ul id="myUL">
+                <li
+                  class="titre1"
+                  *ngFor="let number of week_start_number; let i = index"
+                >
+                  من {{ week_start_name[i] }} {{ number }}
+                  {{ week_start_month[i] }} {{ week_start_year[i] }} الى
+                  {{ week_end_name[i] }} {{ week_end_number[i] }}
+                  {{ week_end_month[i] }} {{ week_end_year[i] }}
+                  <span class="caret"></span>
+                  <ul class="nested">
+                    <li
+                      class="titre2"
+                      *ngFor="let day of datesday; let j = index"
+                      (click)="showDay(weeksday[i][j])"
+                      [attr.data-day]="[
+                        week_start_year[i],
+                        weeksmonth[i][j],
+                        weeksday[i][j]
+                      ]"
+                      [hidden]="!weeksday[i][j]"
+                    >
+                      {{ day.name }} {{ weeksday[i][j] }}
+                      {{ weeksmonth[i][j] }} {{ week_start_year[i] }}
+                      <span class="caret-child"></span>
+                      <ul
+                        class="nested-child"
+                        [attr.data-day]="[
+                          week_start_year[i],
+                          weeksmonth[i][j],
+                          weeksday[i][j]
+                        ]"
+                        #lichild
+                      ></ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Widgets Column -->
+
+    <div class="col-md-3 colonne2">
+      
+        <box-sidebar template="historique"></box-sidebar>
+
+    </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
+<app-footer></app-footer>

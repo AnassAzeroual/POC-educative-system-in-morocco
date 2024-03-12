@@ -1,0 +1,141 @@
+.titre-bloc-libel{
+  margin-right: 25px;
+}
+
+/*nav tabs*/
+#tabs ul.nav.nav-pills {
+  direction: rtl;
+  padding-right: 0px;
+}
+#tabs .nav-pills .nav-link{
+  width: 149px;
+  height: 45px;
+  border: 1px solid #4950573b;
+  padding: 6px 14px 20px 14px;
+  border-radius: 59px 5px 59px 0;
+  background: #5aeef3;
+  color: #444;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.2s;
+  position: relative;
+  z-index: 1;
+  font-weight: bold;
+  font-size: 20px;
+}
+#tabs li.nav-item:hover{
+  text-shadow: 1px 1px 0 #bbb;
+  box-shadow: 0px 0px 10px rgb(64, 240, 210);
+  font-weight: 500;
+}
+#tabs .nav-link:hover{
+  color: white;
+  background-color: rgb(64, 240, 210);
+}
+#tabs .nav-item{
+  margin-left: -16px;
+  height: 45px;
+  border-radius: 59px 5px 59px 0;
+  transition: .2s;
+  /* border: 1px solid #4950573b; */
+  width: 147px;
+}
+#tabs .nav-pills .nav-link.active,
+#tabs .nav-pills .nav-link.active:focus{
+  
+  z-index: 3;
+  background: white;
+  color: #48b2e4;
+  text-shadow: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+#tabs .tab-content {
+  border-radius: 7px;
+  background-color: #ffffff;
+}
+#tabs{
+  border-radius: 45px 5px 0 0;
+  padding-bottom: 16px;
+  background-color: #f5f5f5;
+}
+#tabs .titre-tab{
+  border-radius: 61px 5px 60px 0;
+  background-color: #48b2e4;
+  color: #fff;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+}
+#tabs .titre-bloc {
+  padding: 5px;
+  border-bottom: 1px solid #48b2e4;
+  font-weight: bold;
+  padding-bottom: 0px;
+  padding-top: 10px;
+  height: 50px;
+  color: #48b2e4 !important;
+  font-size: 20px;
+}
+#tabs .cours{
+  font-size: 16px;
+  font-weight: 600;
+  color: #1b4691 !important;
+}
+#tabs .icon-cours{
+  direction: rtl;
+  display: inline-flex;
+  padding: 4px 4px;
+  width: 100%;
+  border-bottom: 2px dotted #8080804f;
+  cursor: pointer;
+}
+
+.cours-hover{
+  color: #007bff !important;
+}
+.icon-cours:hover{
+  color: #007bff !important;
+  background-color: #00c7ff1f;
+}
+#tabs .fa.fa-star{
+  color: #1b4691;
+  position: absolute;
+}
+#tabs .icon-star5{
+  left: 44px;
+}
+#tabs .icon-star4{
+  left: 59px;
+}
+#tabs .icon-star3{
+  left: 75px;
+}
+#tabs .icon-star2{
+  left: 91px;
+}
+#tabs .icon-star1{
+  left: 108px;
+}
+#tabs .icon-book{
+  position: relative;
+  padding: 3px 7px;
+  color: #48b2e4;
+}
+#tabs .icon-edit{
+  position: relative;
+  padding: 3px 7px;
+  color: #1ecea2;
+}
+#quiz .titre-bloc {
+  color: #1ecea2 !important;
+  border-bottom: 1px solid #1ecea2;
+}
+#cours,#quiz {
+  padding-bottom: 31px;
+}
+h4.panel-title {
+  margin-bottom: 0px;
+}

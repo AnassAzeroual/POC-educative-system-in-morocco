@@ -1,0 +1,535 @@
+<app-navbar></app-navbar>
+<!-- Page Content -->
+<div class="container top_marg">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-9 colonne1">
+          <app-bouton-home></app-bouton-home>
+      </div>
+      <div class="col-md-3 colonne2">
+          <app-note></app-note>
+        </div>
+    </div>
+      <!-- Blog Post -->
+      <div class="mb-4" id="accueil">
+        
+          <div class="box_border_top_style"> <!-- fatima -->
+   
+            <div class="card-title matiere turquoise rtl"><i class="fas fa-comments"></i> اسئلة واجوبة </div>
+   
+            <!--tabulation-->
+            <div class="tabs">
+              <div class="tabilation" id="tabs">
+                <div class="tab dropdown" id="tab4">
+                 <span class="dropbtn"><i class="fas fa-cogs icontab"></i><span>خدمات</span></span> 
+                  <div class="dropdown-content">
+                      <a (click)="change_content_service('1')">اقرأ المزيد</a>
+                      <a (click)="change_content_service('2')">ميثاق الاستخدام</a>
+                    </div>
+                </div>
+                <div class="tab dropdown" id="tab3" >
+                  <span class="dropbtn"><i class="fas fa-user-astronaut icontab"></i><span>أنشطتي</span></span>
+                  <div class="dropdown-content">
+                      <a (click)="change_content('tab3')">أسئلتي</a>
+                      <a (click)="change_content('tab3')">أجوبتي</a>
+                    </div>
+                </div>
+                <div class="tab" id="tab2" (click)="change_content('tab2')">
+                  <i class="fas fa-question icontab"></i><span>طرح سؤال</span>
+                </div>
+                <div class="tab activ" id="tab1" (click)="change_content('tab1')">
+                  <i class="fas fa-question icontab"></i><span>جميع الاسئلة</span>
+                </div>
+              </div>
+            </div>
+            <!--the changeable content-->
+            <div *ngIf="first_content">
+            <!--filtre-->
+            <div class="container filtre">
+              <div class="row">
+                <div class="col-md-3">
+                  <button class="btn btn_filter btn-success">ابدأ<i class="fas icontab fa-hand-point-left"></i></button>
+                </div>
+                <div class="col-md-9">
+                 <table style="direction:rtl;">
+                   <tbody>
+                     <tr class="lign">
+                       <td><span class="choix"> اختيار الاسئلة حسب : </span></td>
+                     </tr>
+                     <tr class="lign">
+                       <td class="td1"><span>الموضوع </span></td>
+                       <td class="td2"><span>:</span></td>
+                       <td>
+                          <select class="form-control" id="exampleFormControlSelect1" >
+                              <option [value]="item" *ngFor="let item of themes">{{item}}</option>
+                          </select>
+                       </td>
+                     </tr>
+                     <tr class="lign">
+                       <td class="td1"><span>المستوى</span></td>
+                       <td class="td2"><span>:</span></td>
+                       <td>
+                        <select class="form-control" id="exampleFormControlSelect1" >
+                          <option [value]="item" *ngFor="let item of niveaux">{{item}}</option>
+                        </select>
+                       </td>
+                     </tr>
+                     <tr class="lign" *ngIf="class_exist">
+                      <td class="td1"><span>القسم</span></td>
+                      <td class="td2"><span>:</span></td>
+                      <td>
+                       <select class="form-control" id="exampleFormControlSelect1" >
+                         <option [value]="item" *ngFor="let item of classes">{{item}}</option>
+                       </select>
+                      </td>
+                     </tr>
+                     <tr class="lign" *ngIf="matiere_exist">
+                      <td  class="td1"><span>المادة</span></td>
+                      <td class="td2"><span>:</span></td>
+                      <td>
+                       <select class="form-control" id="exampleFormControlSelect1" >
+                         <option [value]="item" *ngFor="let item of matieres">{{item}}</option>
+                       </select>
+                      </td>
+                     </tr>
+                     <tr class="lign" *ngIf="partie_programme">
+                      <td class="td1"><span>جزء من البرنامج</span></td>
+                      <td class="td2"><span>:</span></td>
+                      <td>
+                       <select class="form-control" id="exampleFormControlSelect1" >
+                         <option [value]="item" *ngFor="let item of parties">{{item}}</option>
+                       </select>
+                      </td>
+                     </tr>
+                     <tr class="lign">
+                        <td class="td1"><span>الوضعية</span></td>
+                        <td class="td2"><span>:</span></td>
+                        <td>
+                         <select class="form-control" id="exampleFormControlSelect1" >
+                           <option [value]="item" *ngFor="let item of statuts">{{item}}</option>
+                         </select>
+                        </td>
+                      </tr>
+                   </tbody>
+                 </table>
+                </div>
+              </div>
+            </div>
+            <!--les questions-->
+            <div class="container questions">
+              <div class="question_c">
+                <div class="title">
+                    <span>جميع الاسئلة</span>
+                </div>
+                <div class="trier">
+                  <span>الترتيب حسب :</span>
+                  <select class="form-control" id="exampleFormControlSelect1" >
+                      <option [value]="item" *ngFor="let item of trier_table">{{item}}</option>
+                  </select>
+                </div>
+                <!--question-->
+                <div class="question row" (click)="showquestion()">
+                    <div class="col-md-3">
+                        <tr><i class="fa green fa-thumbs-up"></i><span class="green">0</span>
+                          <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                        </tr>
+                        <tr></tr>
+                        <tr><span class="reponse">1 إجابة</span></tr>
+                        <tr><span class="statut">الوضعية : </span><span class="statut1">أثناء</span></tr>
+                      </div>
+                  <div class="col-md-9">
+                      <table>
+                          <tbody>
+                            <tr class="title_tr">واجب منزلي </tr>
+                            <tr><span class="route">فهم الفكرة  /  ثانوي  / السنة الاولى علوم تجريبية  /  فيزياء و كيمياء  /  الصحة</span></tr>
+                            <tr></tr>
+                            <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">aliennor140</span><img src="./assets/img/Avatar/003-girl.png" class="icon" width="35px" height="35px"></tr>
+                          </tbody>
+                        </table>
+                  </div>
+                </div>
+                <!--question-->
+                <div class="question row" (click)="showquestion()">
+                    <div class="col-md-3">
+                        <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                          <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                        </tr>
+                        <tr></tr>
+                        <tr><span class="reponse">1 إجابة</span></tr>
+                        <tr><span class="statut">الوضعية : </span><span class="statut1">أثناء</span></tr>
+                      </div>
+                  <div class="col-md-9">
+                      <table>
+                          <tbody>
+                            <tr class="title_tr">واجب منزلي</tr>
+                            <tr><span class="route">فهم الفكرة  /  ثانوي  / السنة الاولى علوم تجريبية  /  فيزياء و كيمياء  /  الصحة</span></tr>
+                            <tr></tr>
+                            <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">aliennor140</span><img src="./assets/img/Avatar/003-girl.png" class="icon" width="35px" height="35px"></tr>
+                          </tbody>
+                        </table>
+                  </div>
+                </div>
+                                <!--question-->
+                                <div class="question row" (click)="showquestion()">
+                                    <div class="col-md-3">
+                                        <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                                          <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                                        </tr>
+                                        <tr></tr>
+                                        <tr><span class="reponse">1 إجابة</span></tr>
+                                        <tr><span class="statut">الوضعية : </span><span class="statut1">أثناء</span></tr>
+                                      </div>
+                                  <div class="col-md-9">
+                                      <table>
+                                          <tbody>
+                                            <tr class="title_tr">واجب منزلي</tr>
+                                            <tr><span class="route">فهم الفكرة  /  ثانوي  / السنة الاولى علوم تجريبية  /  فيزياء و كيمياء  /  الصحة</span></tr>
+                                            <tr></tr>
+                                            <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">aliennor140</span><img src="./assets/img/Avatar/003-girl.png" class="icon" width="35px" height="35px"></tr>
+                                          </tbody>
+                                        </table>
+                                  </div>
+                                </div>
+                          <!--question-->
+                          <div class="question row">
+                              <div class="col-md-3">
+                                  <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                                    <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                                  </tr>
+                                  <tr></tr>
+                                  <tr><span class="reponse">1 إجابة</span></tr>
+                                  <tr><span class="statut">الوضعية : </span><span class="statut1">أثناء</span></tr>
+                                </div>
+                            <div class="col-md-9">
+                                <table>
+                                    <tbody>
+                                      <tr class="title_tr">واجب منزلي</tr>
+                                      <tr><span class="route">فهم الفكرة  /  ثانوي  / السنة الاولى علوم تجريبية  /  فيزياء و كيمياء  /  الصحة</span></tr>
+                                      <tr></tr>
+                                      <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">aliennor140</span><img src="./assets/img/Avatar/003-girl.png" class="icon" width="35px" height="35px"></tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                          </div>
+                                          <!--question-->
+                <div class="question row">
+                    <div class="col-md-3">
+                        <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                          <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                        </tr>
+                        <tr></tr>
+                        <tr><span class="reponse">1 إجابة</span></tr>
+                        <tr><span class="statut">الوضعية : </span><span class="statut1">أثناء</span></tr>
+                      </div>
+                  <div class="col-md-9">
+                      <table>
+                          <tbody>
+                            <tr class="title_tr">واجب منزلي</tr>
+                            <tr><span class="route">فهم الفكرة  /  ثانوي  / السنة الاولى علوم تجريبية  /  فيزياء و كيمياء  /  الصحة</span></tr>
+                            <tr></tr>
+                            <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">aliennor140</span><img src="./assets/img/Avatar/003-girl.png" class="icon" width="35px" height="35px"></tr>
+                          </tbody>
+                        </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--fin content-->
+
+          <!--show question-->
+          <div *ngIf="showquestiondiv">
+              <button class="btn button btnscore2 btn-info" (click)="return()"> الرجوع<div class="round2"><i class="fas fa-arrow-left"></i></div></button>
+            <app-doquestion></app-doquestion></div>
+          <!--2c-->
+          <div *ngIf="seconde_content">
+            <!--poser la question-->
+              <div class="container filtre doquest">
+                  <div class="row">
+                    <div class="col-md-12">
+                     <table style="direction:rtl;">
+                       <tbody>
+                         <tr class="lign">
+                           <td class="choix_td"><span class="choix"> اطرح سؤالك : </span></td>
+                         </tr>
+                         <tr class="lign">
+                           <td class="td11"><span>عنوان السؤال </span></td>
+                           <td class="td11"><span>:</span></td>
+                           <td style="width:100%">
+                              <input type="text" name="titre" value="" id="titre" class="champs-style form-control">
+                           </td>
+                         </tr>
+                         <tr class="lign">
+                           <td class="td11"><span>السؤال</span></td>
+                           <td class="td11"><span>:</span></td>
+                           <td style="width:100%">
+                              <textarea rows="5" cols="30"  name="contenu" id="contenu" class="champs-style form-control">
+                              </textarea>
+                           </td>
+                         </tr>
+                       </tbody>
+                     </table>
+                     <div class="check" >
+                        <input type="checkbox" name="isAutoSubscribed" checked=""> 
+                        انذاري  برسالة الكترونية عند وجود اجوبة او تعاليق 
+                     </div>
+                    </div>
+                  </div>
+                </div>
+              <!--classer la question-->
+              <div class="container filtre doquest">
+                  <div class="row">
+                    <div class="col-md-12">
+                     <table style="direction:rtl;">
+                       <tbody>
+                         <tr class="lign">
+                           <td class="choix_td"><span class="choix">ترتيب السؤال : </span></td>
+                         </tr>
+                         <tr class="lign">
+                           <td class="td11"><span>الموضوع  </span><span class="oblige">  * </span></td>
+                           <td class="td11"><span>:</span></td>
+                           <td style="width:100%">
+                              <select class="form-control" id="exampleFormControlSelect1" >
+                                  <option [value]="item" *ngFor="let item of themes">{{item}}</option>
+                              </select>
+                           </td>
+                         </tr>
+                         <tr class="lign">
+                           <td class="td11"><span>المستوى</span><span class="oblige">  * </span></td>
+                           <td class="td11"><span>:</span></td>
+                           <td style="width:100%" >
+                            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="niveau">
+                              <option [value]="item" *ngFor="let item of niveaux">{{item}}</option>
+                            </select>
+                           </td>
+                         </tr>
+                         <tr class="lign">
+                          <td class="td11"><span>القسم</span><span class="oblige">  * </span></td>
+                          <td class="td11"><span>:</span></td>
+                          <td style="width:100%">
+                           <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="classe">
+                             <option [value]="item" *ngFor="let item of classes">{{item}}</option>
+                           </select>
+                          </td>
+                         </tr>
+                         <tr class="lign">
+                          <td  class="td11"><span>المادة</span></td>
+                          <td class="td11"><span>:</span></td>
+                          <td style="width:100%">
+                           <select class="form-control" id="exampleFormControlSelect1" >
+                             <option [value]="item" *ngFor="let item of matieres">{{item}}</option>
+                           </select>
+                          </td>
+                         </tr>
+                         <tr class="lign" *ngIf="partie_programme">
+                          <td class="td11"><span>جزء من البرنامج</span></td>
+                          <td class="td11"><span>:</span></td>
+                          <td style="width:100%">
+                           <select class="form-control" id="exampleFormControlSelect1" >
+                             <option [value]="item" *ngFor="let item of parties">{{item}}</option>
+                           </select>
+                          </td>
+                         </tr>
+                       </tbody>
+                     </table>
+                     <div class="oblige" >
+                      * يجب ملؤها
+                     </div>
+                    </div>
+                  </div>
+                </div>
+              <!--ajouter une ressource a ma question-->
+              <div class="container filtre doquest">
+                  <div class="row">
+                    <div class="col-md-12">
+                     <table style="direction:rtl;">
+                       <tbody>
+                         <tr class="lign">
+                           <td class="choix_td"><span class="choix"> أضف مورد لسؤالي : </span></td>
+                         </tr>
+                         <tr class="lign">
+                           <td style="width:15%" class="pa_r">
+                              <select class="form-control" id="exampleFormControlSelect1" >
+                                  <option [value]="item" *ngFor="let item of themes">{{item}}</option>
+                              </select>
+                           </td>
+                           <td style="width:29%" class="pa_r">
+                            <select class="form-control" id="exampleFormControlSelect1" >
+                                <option [value]="item" *ngFor="let item of themes">{{item}}</option>
+                            </select>
+                         </td>
+                         <td style="width:29%" class="pa_r">
+                          <select class="form-control" id="exampleFormControlSelect1" >
+                              <option [value]="item" *ngFor="let item of themes">{{item}}</option>
+                          </select>
+                       </td>
+                         </tr>
+                        </tbody>
+                      </table>
+                      <table style="direction:rtl;" class="marg_t">
+                        <tbody >
+                         <tr class="lign" >
+                          <td style="width:70%" class="pa_r">
+                           <select class="form-control" id="exampleFormControlSelect1" >
+                             <option [value]="item" *ngFor="let item of parties">{{item}}</option>
+                           </select>
+                          </td>
+                          <td style="width:29%">
+                            <button class="btn btn_filter btn-success" style="margin-top: 0%;direction: ltr;">بحث <i class="fas fa-search" style="color:cyan;"></i></button>
+                          </td>
+                         </tr>
+                       </tbody>
+                     </table>
+                    </div>
+                  </div>
+                </div >
+                <!--fin-->
+                <div class="container add">
+                  <button class="btn btn_filter btn-success" style="margin-right: 0%;margin-top: 0%;direction: ltr;">اضف السؤال<i class="fas fa-plus icontab"></i></button>
+                </div>
+          </div>
+          <!--3c-->
+          <div *ngIf="three_content">
+            <div class="container filtre points">
+              <span class="pt1 pts">لديك</span> <span class="pt2 pts">  107 نقطة</span>
+            </div>
+            <div  id="tabs2">
+              <div class="container">
+                <!-- Nav pills -->
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item" >
+                      <a class="nav-link active" data-toggle="pill" href="#questions">أسئلتي</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#reponses">أجوبتي</a>
+                    </li>
+                </ul>
+              
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <!-- questions -->
+                  <div id="questions" class="container tab-pane active">
+                    <!--question-->
+                    <div class="question row">
+                      <div class="col-md-3">
+                        <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                            <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                        </tr>
+                        <tr></tr>
+                        <tr><span class="reponse">0 إجابة</span></tr>
+                        <tr><span class="statut">الوضعية : </span><span class="statut1">أثناء</span></tr>
+                      </div>
+                      <div class="col-md-9">
+                       <table>
+                        <tbody>
+                          <tr class="title_tr">واجب منزلي</tr>
+                          <tr><span class="route">فهم الفكرة  /  ثانوي  / السنة الاولى علوم تجريبية  /  فيزياء و كيمياء  /  الصحة</span></tr>
+                          <tr></tr>
+                          <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">ali</span><img src="./assets/img/Avatar/004-girl.png" class="icon" width="35px" height="35px"></tr>
+                        </tbody>
+                       </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- reponses -->
+                  <div id="reponses" class="container tab-pane">
+                    <!---<p>لم تعط إجابة</p>-->
+                    <!--question-->
+                    <div class="question">
+                      <div class="row" style="padding-right: 13px;padding-left: 13px;">
+                      <div class="col-md-3">
+                        <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                            <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                        </tr>
+                        <tr></tr>
+                        <tr><span class="reponse">0 إجابة</span></tr>
+                        <tr><span class="statut">الوضعية : </span><span class="statut1">أثناء</span></tr>
+                      </div>
+                      <div class="col-md-9">
+                       <table>
+                        <tbody>
+                          <tr class="title_tr">واجب منزلي</tr>
+                          <tr><span class="route">فهم الفكرة  /  ثانوي  / السنة الاولى علوم تجريبية  /  فيزياء و كيمياء  /  الصحة</span></tr>
+                          <tr></tr>
+                          <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">aliennor140</span><img src="./assets/img/Avatar/003-girl.png" class="icon" width="35px" height="35px"></tr>
+                        </tbody>
+                       </table>
+                      </div>
+                      </div>  
+                      <!--reponse-->
+                        <div class="row rep" style="padding: 6px 13px;">
+                        <div class="col-md-3">
+                          <tr><i class="fa green fa-thumbs-up"></i><span class="green" >0</span>
+                              <i class="fa red fa-thumbs-down"></i><span class="red">0</span>
+                          </tr>
+                          <tr></tr>
+                        </div>
+                        <div class="col-md-9">
+                         <table>
+                          <tbody>
+                            <tr class="title_tr">:  جوابي  </tr>
+                            <tr><span class="textrep">فهم الفكرة</span></tr>
+                            <tr></tr>
+                            <tr><span> تلميذ) -   15 دجنبر 2018 | 12:21) </span><span class="nom">ali</span><img src="./assets/img/Avatar/004-girl.png" class="icon" width="35px" height="35px"></tr>
+                          </tbody>
+                         </table>
+                        </div>
+                        </div>    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <br>
+
+          </div>
+          <!--2c-->
+          <div *ngIf="four_content">
+            <div class="container filtre serviceqr">
+              <p class="title">خدمة الأسئلة والأجوبة</p>
+              <div class="container" style="padding-right:15px;padding-bottom:15px;">
+                  <p class="grandtitre">سؤال وجواب ، ما هو؟</p>
+                  <div class="bleutext">
+                    <p>هل لديك سؤال حول مفهوم المدرسة؟</p>
+                    <p>هل تحتاج إلى مساعدة في مراجعة أو أداء واجب منزلي؟  </p>
+                    <p>هل تريد مساعدة أطفالك في درس أو ممارسة الرياضة؟</p>
+                  </div>
+                  <div class="greytext">
+                      تُعد خدمة الأسئلة والأجوبة مساحة دعم تعاونية للمدرسة تسمح لمجتمع المشترك بطرح الأسئلة والرد عليها. تهدف هذه الخدمة إلى مساعدة الطلاب ، وكذلك أولياء الأمور أو المدربين ، في سياق التعلم المدرسي.
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="five_content">
+              <div class="container filtre serviceqr">
+                  <p class="title"> ميثاق استخدام خدمة الأسئلة والأجوبة</p>
+                  <div class="container" style="padding-right:15px;padding-bottom:15px;">
+                      <div class="greytext">
+                          الأسئلة / الإجابات هي مساحة دعم مدرسة تعاونية. الغرض منه هو مساعدة الطلاب وأولياء أمورهم في التعلم المدرسي. هذا ليس منتدى للمناقشة ، ولكنه مكان للنقاش حول التنقيحات.                     
+                      </div>
+                      <p class="grandtitre">يجب القيام به</p>
+                      <div>
+                        <span>كونه مهذبا</span>
+                        <span class="slide1" (click)="slidetoggle('slide1')"><i class="fas fa-check"></i></span>
+                        <div class="non textinterne">يجب أن تكون محترماً ومهذباً في رسائلك. وإلا سيتم حذف رسائلك.</div>
+                      </div>
+                      <div>
+                        <span>مساعدة ومشاركة</span>
+                        <span class="slide2" (click)="slidetoggle('slide2')"><i class="fas fa-check"></i></span>
+                        <div class="non textinterne">يجب أن تكون محترماً ومهذباً في رسائلك. وإلا سيتم حذف رسائلك.</div>
+                      </div>
+                      <div>
+                        <span>اكتب بشكل صحيح</span>
+                        <span class="slide3" (click)="slidetoggle('slide3')"><i class="fas fa-check"></i></span>
+                        <div class="non textinterne">يجب أن تكون محترماً ومهذباً في رسائلك. وإلا سيتم حذف رسائلك.</div>
+                      </div>
+
+                  </div>
+                </div>           
+               </div>
+           </div>
+         </div>

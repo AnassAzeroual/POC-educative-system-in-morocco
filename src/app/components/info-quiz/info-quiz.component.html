@@ -1,0 +1,135 @@
+<app-navbar></app-navbar>
+
+<!-- Page Content -->
+<div class="container top_marg">
+
+  <div class="row">
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-9 colonne1">
+      <app-bouton-home></app-bouton-home>
+     
+        <!-- Blog Post -->
+      <div class="mb-4" id="infoquiz" >
+        <div class=" container" id="tab2">     
+          <br>
+          <div class="titre-quiz" style="dir:rtl;">
+            <i class="fa fa-question question1" aria-hidden="true"></i>
+            <p> اختبار</p>
+          </div>
+          <!-- <div>
+              <button class="conseils text rep rep2"  type="button" id="rep2" name="rep2" value="" (click)="choixrep('rep2')">
+                  <iframe class="option3 option" width="100%" src="./assets/files/option1.html" #iframe id="option3" ></iframe>
+ 
+              </button>
+               <button class="conseils text rep rep2"  type="button" id="rep2" name="rep2" value="" (click)="choixrep('rep2')">
+                  <iframe class="option3 option" width="100%" src="./assets/files/option2.html" #iframe id="option3" ></iframe>
+  
+              </button>
+                <button class="conseils text rep rep2"  type="button" id="rep2" name="rep2" value="" (click)="choixrep('rep2')">
+                    <iframe class="option3 option" width="100%" src="./assets/files/option3.html" #iframe id="option3" ></iframe>
+  
+                </button>
+
+          </div>-->
+          <div class="corps-quiz"  *ngIf="id=='0'">
+             <div class="conseils text notfocus">
+              <p class="titre">نصائح <i class="fa fa-lightbulb-o"></i></p>
+              <p class="text2"> اقرأ البيانات قبل الإجابة <i class="fa fa-thumb-tack"></i>  </p>
+              <p class="text2">اقرأ أيضًا تذكيرات الدروس قبل الانتقال إلى السؤال التالي <i class="fa fa-thumb-tack"></i> </p>
+             </div>
+             <div class="conseils text notfocus">
+              <p class="titre">سلم <i class="fa fa-trophy"></i></p>
+              <p class="text2"> لكل اختبار ، اختر الاجابة الصحيحة <i class="fa fa-thumb-tack"></i> </p>
+              <p class="text2">.قيّم نفسك بأفضل ما يمكن ، مما سيجلب لك أكبر عدد من النقاط<i class="fa fa-thumb-tack"></i> </p>
+              <p class="text2">: إليك النقاط التي يمكنك الفوز بها<i class="fa fa-thumb-tack"></i> </p>
+              <div class="tableBareme">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">إذا كانت الإجابة صحيحة<i class="fa fa-thumbs-up"></i></th>
+                      <th scope="col">إذا كانت الإجابة خاطئة<i class="fa fa-thumbs-down"></i></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td  style="direction:rtl;" class="note"> <span>+ 5</span> <span>  نقاط </span> </td>
+                      <td  style="direction:rtl;" class="note"> <span>- 5</span> <span>  نقاط </span>  </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             </div>
+
+             <div class="boutton">
+              <button type="button" class="btn btn-info beginbtn" (click)=beginQuiz() ><p class="text-btn">ابدأ الاختبار <i class="fa fa-hand-o-up"></i></p> </button>
+             </div>
+          </div>
+          <div *ngIf="id=='1'">
+
+            <div class="conseils text questiontxt">
+              <p class="titre">سؤال رقم {{numberQuestions}}/{{numberQuestion}} <i class="fa fa-question question"></i></p>
+              <div class="text2">
+                  <iframe class="quiz" width="100%" [src]="question" #quest id="quiz" ></iframe>
+              </div>
+            </div>
+
+            <button class="conseils text rep rep1" type="button" id="rep1" name="rep1" value="" (click)="choixrep('rep1')">
+                <div style="position:relative;">
+                    <div class="" style="direction: rtl;    color: midnightblue;"><i class="fa fa-hand-o-left"></i> اختر هده الاجابة</div>
+                    <iframe class="option1 option" width="100%" height="65px" [src]="option1" #iframe id="option1" ></iframe>
+                    <div (click)="choixrep('rep2')" style="position:absolute;top:28px;left:0;display:inline-block;width:100%;/* height:65px; */z-index:5;cursor: pointer;height: 50px;"></div>
+                    </div>
+                <iframe class="nondisplay commentaire1" width="100%" [src]="c1" #iframe id="commentaire1" ></iframe>
+              <p class="nondisplay alerte" id="alerte1" ></p> 
+            </button>
+
+            <button class="conseils text rep rep2"  type="button" id="rep2" name="rep2" value="" (click)="choixrep('rep2')">
+                <div style="position:relative;">
+                    <div class="" style="direction: rtl;    color: midnightblue;"><i class="fa fa-hand-o-left"></i> اختر هده الاجابة</div>
+                    <iframe class="option2 option" width="100%" height="65px" [src]="option2" #iframe id="option2" ></iframe>
+                      <div (click)="choixrep('rep2')" style="position:absolute;top:28px;left:0;display:inline-block;width:100%;/* height:65px; */z-index:5;cursor: pointer;height: 50px;"></div>
+                      </div>  
+                <iframe class="nondisplay commentaire2" width="100%" [src]="c2" #iframe id="commentaire2" ></iframe>
+              <p class="nondisplay alerte" id="alerte2"></p> 
+            </button>
+
+            <button class="conseils text rep rep3" type="button" id="rep3" name="rep3" value="" (click)="choixrep('rep3')">
+                <div style="position:relative;">
+                    <div class="" style="direction: rtl;    color: midnightblue;"><i class="fa fa-hand-o-left"></i> اختر هده الاجابة</div>
+                    <iframe class="option3 option" width="100%" height="65px"[src]="option3" #iframe id="option3" ></iframe>
+                      <div (click)="choixrep('rep3')" style="position:absolute;top:28px;left:0;display:inline-block;width:100%;/* height:65px; */z-index:5;cursor: pointer;height: 50px;"></div>
+                    </div>  
+                <iframe class="nondisplay commentaire3" width="100%" [src]="c3" #iframe id="commentaire3" ></iframe>
+              <p class="nondisplay alerte" id="alerte3"></p> 
+            </button>
+
+            <button type="button"  class="btn btnvalid btn-info nondisplay" (click)="valider()" ><p class="text-btn">صحح<i class="fa fa-lightbulb-o next"></i></p> </button>
+            
+            <div class="reussite nondisplay">
+                <span><h4> النجاح:</h4></span> <span class="result"> نجحت في {{pointreussi}} من {{numberQuestions}} </span><span></span>
+            </div>
+
+            <div class="boutton nondisplay">
+              <button type="button"  class="btn btnnext btn-info nondisplay " (click)="nextQuestion(numberQuestion)"><p class="text-btn"> {{nextboutton}}<i class="fa fa-arrow-alt-circle-right next"></i></p> </button>
+            </div>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+     <div class="col-md-3 colonne2">
+      
+        <box-sidebar template="infoquiz" ></box-sidebar>
+
+     </div>
+
+   </div>
+   <!-- /.row -->
+
+ </div>
+ <!-- /.container -->
+
+ <app-footer></app-footer>
