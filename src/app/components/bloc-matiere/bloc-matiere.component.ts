@@ -76,7 +76,6 @@ export class BlocMatiereComponent implements OnInit {
     this.route.fragment.subscribe(fragments => {
       this.routefragment = fragments;
       let routesTable = fragments.split("/");
-      console.log(routesTable);
       matiereName = this.matiereName = routesTable[0];
       name = this.name = routesTable[routesTable.length - 1];
       for (let i = 0; i < routesTable.length; i++) {}
@@ -471,7 +470,7 @@ export class BlocMatiereComponent implements OnInit {
 
   getSelectedmatiere() {
     let matiere;
-    let data_matieres = this.localStorageService.getLocalStorage("mat");
+    let data_matieres = [this.localStorageService.getLocalStorage("mat")];
     data_matieres.forEach(element => {
       if (element["libelle_objet"] == this.matiereName) {
         matiere = element;

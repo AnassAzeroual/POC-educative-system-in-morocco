@@ -22,7 +22,6 @@
     "@angular/router": "^9.1.13",
     "@ng-bootstrap/ng-bootstrap": "^6.2.0",
     "angular-notifier": "^6.0.2",
-    "angular-webstorage-service": "^1.0.2",
     "chart.js": "^2.9.4",
     "core-js": "^2.6.12",
     "fullcalendar": "^3.10.5",

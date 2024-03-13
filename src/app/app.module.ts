@@ -7,7 +7,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NotifierModule } from "angular-notifier";
-import { StorageServiceModule } from "angular-webstorage-service";
 import { CookieService } from "ngx-cookie-service";
 import * as $ from 'jquery';
 import { FullCalendarModule } from "ng-fullcalendar";
@@ -144,10 +143,8 @@ const appRoutes: Routes = [
     // FullCalendarModule,
     RouterModule.forRoot(
       appRoutes,
-      { useHash: true }
-      // { enableTracing: true } // <-- debugging purposes only
+      { useHash: true,enableTracing: false }
     ),
-    StorageServiceModule,
     NgbModule
   ],
   providers: [

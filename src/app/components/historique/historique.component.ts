@@ -256,7 +256,6 @@ export class HistoriqueComponent implements OnInit {
   }
 
   toogleSpecificNode() {
-    this.routerActivated.queryParamMap.subscribe();
     this.dateToFetch = this.routerActivated.snapshot.queryParamMap.get("date");
     let dateToGo = "03-12-2018";
     if (dateToGo) {

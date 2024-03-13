@@ -1,5 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
-import { SESSION_STORAGE, StorageService } from 'angular-webstorage-service';
+import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 
 // key that is used to access the data in local storage
@@ -8,13 +7,13 @@ const TOKEN = 'TOKEN';
 @Injectable()
 export class LocalStorageService {
 
-
-    constructor(@Inject(SESSION_STORAGE) private storage:StorageService, private cookieService: CookieService ) { };
+  storage = localStorage;
+    constructor(private cookieService: CookieService ) { };
     
     public storage2=this.storage;
 
      storeLocalStorage(table,key){         
-        this.storage.set(key, table);
+      this.storage.setItem(key, table);
     }
 
     getLocalStorage(key){
@@ -22,11 +21,11 @@ export class LocalStorageService {
     }
 
     setToken(token: string): void {
-      this.storage.set(TOKEN, token);
+      this.storage.setItem(TOKEN, token);
     }
 
     isLogged() {
-      return this.storage.get(TOKEN) != null;
+      return this.storage.getItem(TOKEN) != null;
     }
 
     destructSession(){

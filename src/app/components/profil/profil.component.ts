@@ -15,7 +15,7 @@ declare var $: any;
 })
 export class ProfilComponent implements OnInit {
   // avatars: Avatar =  [];
-  constructor(private http: HttpClient, private localStorageService: LocalStorageService, private router: Router , private HomemRoute: Router) { }
+  constructor(private http: HttpClient, private localStorageService: LocalStorageService, private router: Router) { }
   profile = [];
   girl_Avatars;
   id;
@@ -44,7 +44,7 @@ export class ProfilComponent implements OnInit {
        },
        err => {
          this.localStorageService.destructSession();
-         this.HomemRoute.navigateByUrl('/');
+         this.router.navigateByUrl('/');
        }
      );
 

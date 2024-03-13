@@ -39,7 +39,6 @@ export class NoteComponent implements OnInit {
   updatescore(){
     this.scoringService.observer.subscribe(
       response => {
-        console.log("hello")
         console.log(response)
         this.profile["score"]=response;
         //this.Profile_change.emit(this.profile);
