@@ -8,7 +8,7 @@ declare var $: any;
 @Component({
   selector: 'app-compte',
   templateUrl: './compte.component.html',
-  styleUrls: ['./compte.component.css', './modal.component.css', './spinner.module.css']
+  styleUrls: ['./compte.component.css', './modal.component.css', './spinner.component.css']
 })
 export class CompteComponent implements OnInit {
   newLoginName: any;

@@ -7,8 +7,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NotifierModule } from "angular-notifier";
-import { CookieService } from "ngx-cookie-service";
 import * as $ from 'jquery';
+import {CookieService} from 'ngx-cookie-service';
 import { FullCalendarModule } from "ng-fullcalendar";
 import { NeedAuthGuard } from "./NeedAuthGuard";
 import { AppComponent } from "./app.component";
@@ -139,7 +139,6 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     NotifierModule,
-    FullCalendarModule,
     // FullCalendarModule,
     RouterModule.forRoot(
       appRoutes,
