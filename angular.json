@@ -121,6 +121,5 @@
         }
       }
     }
-  },
-  "defaultProject": "ng2-host"
+  }
 }
