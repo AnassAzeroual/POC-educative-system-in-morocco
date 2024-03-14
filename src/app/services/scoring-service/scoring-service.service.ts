@@ -1,12 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { LocalStorageService } from "../LocalStorage/local-storage.service";
-import { throwError, BehaviorSubject } from "rxjs";
-import AppNotFoundException from "src/app/common/app-not-found";
-import AppError from "src/app/common/app-error";
-import { ProfileService } from "../profile-service/profile.service";
-import { ifStmt } from "@angular/compiler/src/output/output_ast";
 import { CookieService } from "ngx-cookie-service";
+import { BehaviorSubject } from "rxjs";
+import { LocalStorageService } from "../LocalStorage/local-storage.service";
+import { ProfileService } from "../profile-service/profile.service";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"

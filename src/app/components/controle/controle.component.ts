@@ -1,10 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpParams, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { Router } from '@angular/router';
-import { typeofExpr } from '@angular/compiler/src/output/output_ast';
-import { ControleService } from 'src/app/services/controleService/controle.service';
 import { CookieService } from 'ngx-cookie-service';
+import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
+import { ControleService } from 'src/app/services/controleService/controle.service';
 
 declare var $: any;
 @Component({
