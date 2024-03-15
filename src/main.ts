@@ -37,6 +37,7 @@ import { NeedAuthGuard } from './app/NeedAuthGuard';
 import { LocalStorageService } from './app/services/LocalStorage/local-storage.service';
 import { BlocService } from './app/services/blocService/bloc.service';
 import { QuizServiceService } from './app/services/quizService/quiz-service.service';
+import * as $ from "jquery";
 
 const appRoutes: Routes = [
   { path: "", component: StatistiqueComponent }, // AuthComponent
