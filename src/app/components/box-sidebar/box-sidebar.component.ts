@@ -1,9 +1,20 @@
 import { Component, OnInit, Input, EventEmitter, Output,} from '@angular/core';
+import { ConcoursComponent } from '../sidebare/concours/concours.component';
+import { ParcoursComponent } from '../sidebare/parcours/parcours.component';
+import { ApprendsComponent } from '../sidebare/apprends/apprends.component';
+import { AppliqueComponent } from '../sidebare/applique/applique.component';
+import { OutilsComponent } from '../sidebare/outils/outils.component';
+import { QrComponent } from '../sidebare/qr/qr.component';
+import { ReussiteComponent } from '../sidebare/reussite/reussite.component';
+import { NoteComponent } from '../sidebare/note/note.component';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'box-sidebar',
-  templateUrl: './box-sidebar.component.html',
-  styleUrls: ['./box-sidebar.component.css','./accueil.sticky.css']
+    selector: 'box-sidebar',
+    templateUrl: './box-sidebar.component.html',
+    styleUrls: ['./box-sidebar.component.css', './accueil.sticky.css'],
+    standalone: true,
+    imports: [NgIf, NoteComponent, ReussiteComponent, QrComponent, OutilsComponent, AppliqueComponent, ApprendsComponent, ParcoursComponent, ConcoursComponent]
 })
 export class BoxSidebarComponent implements OnInit {
   @Input('template') page: string;

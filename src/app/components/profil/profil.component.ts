@@ -3,15 +3,21 @@ import { HttpClient, HttpParams, HttpErrorResponse, HttpHeaders } from '@angular
 import { from } from 'rxjs';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { Router } from '@angular/router';
+import { NgFor, NgClass, NgIf } from '@angular/common';
+import { NoteComponent } from '../sidebare/note/note.component';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 // import { arr } from './avatar.module';
 // import { from } from 'rxjs';
 declare var $: any;
 
 @Component({
-  selector: 'app-profil',
-  // encapsulation: ViewEncapsulation.None,
-  templateUrl: './profil.component.html',
-  styleUrls: ['./profil.component.css', './modal.component.css' ]
+    selector: 'app-profil',
+    // encapsulation: ViewEncapsulation.None,
+    templateUrl: './profil.component.html',
+    styleUrls: ['./profil.component.css', './modal.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NoteComponent, NgFor, NgClass, NgIf]
 })
 export class ProfilComponent implements OnInit {
   // avatars: Avatar =  [];

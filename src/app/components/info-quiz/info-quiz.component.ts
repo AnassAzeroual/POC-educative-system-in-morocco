@@ -9,12 +9,19 @@ import { QuizServiceService } from 'src/app/services/quizService/quiz-service.se
 import { NotifierService } from 'angular-notifier';
 import { ScoringService } from 'src/app/services/scoring-service/scoring-service.service';
 import { CookieService } from 'ngx-cookie-service';
+import { FooterComponent } from '../ui/footer/footer.component';
+import { BoxSidebarComponent } from '../box-sidebar/box-sidebar.component';
+import { NgIf } from '@angular/common';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 declare var $:any;
 @Component({
-  selector: 'app-info-quiz',
-  templateUrl: './info-quiz.component.html',
-  styleUrls: ['./info-quiz.component.css']
+    selector: 'app-info-quiz',
+    templateUrl: './info-quiz.component.html',
+    styleUrls: ['./info-quiz.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgIf, BoxSidebarComponent, FooterComponent]
 })
 export class InfoQuizComponent implements OnInit,OnChanges,DoCheck,AfterViewInit {
 

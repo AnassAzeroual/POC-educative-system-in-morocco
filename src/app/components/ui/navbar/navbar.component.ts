@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { ScoringService } from 'src/app/services/scoring-service/scoring-service.service';
+import { NgStyle } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 declare var $: any;
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css'],
+    standalone: true,
+    imports: [FormsModule, RouterLink, NgStyle]
 })
 export class NavbarComponent implements OnInit {
 

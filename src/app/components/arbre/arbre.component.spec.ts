@@ -8,8 +8,8 @@ describe('ArbreComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ArbreComponent ]
-    })
+    imports: [ArbreComponent]
+})
     .compileComponents();
   }));
 

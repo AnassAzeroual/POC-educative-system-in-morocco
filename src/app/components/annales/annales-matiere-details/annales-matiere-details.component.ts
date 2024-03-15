@@ -1,12 +1,19 @@
-import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
+import { Component, OnInit, Pipe, PipeTransform, forwardRef } from "@angular/core";
 import { LocalStorageService } from "src/app/services/LocalStorage/local-storage.service";
 import { AnnalesService } from "src/app/services/annales-service/annales.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
+import { FooterComponent } from "../../ui/footer/footer.component";
+import { BoxSidebarComponent } from "../../box-sidebar/box-sidebar.component";
+import { NgFor } from "@angular/common";
+import { BoutonHomeComponent } from "../../ui/bouton-home/bouton-home.component";
+import { NavbarComponent } from "../../ui/navbar/navbar.component";
 
 @Component({
-  selector: "app-annales-matiere-details",
-  templateUrl: "./annales-matiere-details.component.html",
-  styleUrls: ["./annales-matiere-details.component.css"]
+    selector: "app-annales-matiere-details",
+    templateUrl: "./annales-matiere-details.component.html",
+    styleUrls: ["./annales-matiere-details.component.css"],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgFor, RouterLink, BoxSidebarComponent, FooterComponent, forwardRef(() => KeysPipe)]
 })
 export class AnnalesMatiereDetailsComponent implements OnInit {
   matiere = {
@@ -73,7 +80,10 @@ export class AnnalesMatiereDetailsComponent implements OnInit {
   }
 }
 
-@Pipe({ name: "keys" })
+@Pipe({
+    name: "keys",
+    standalone: true
+})
 export class KeysPipe implements PipeTransform {
   transform(value: any, args: any[] = null): any {
     let keys = value && Object.keys(value);

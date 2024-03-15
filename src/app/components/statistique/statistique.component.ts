@@ -5,11 +5,16 @@ import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage
 import { Router } from '@angular/router';
 import { StatistiqueService } from 'src/app/services/statistiques/statistique.service';
 import { SessionService } from 'src/app/services/session/session.service';
+import { NoteComponent } from '../sidebare/note/note.component';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 @Component({
-  selector: 'app-statistique',
-  templateUrl: './statistique.component.html',
-  styleUrls: ['./statistique.component.css', './tooltips.modul.css', './progresses-bar.modul.css']
+    selector: 'app-statistique',
+    templateUrl: './statistique.component.html',
+    styleUrls: ['./statistique.component.css', './tooltips.modul.css', './progresses-bar.modul.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NoteComponent]
 })
 export class StatistiqueComponent implements OnInit {
 

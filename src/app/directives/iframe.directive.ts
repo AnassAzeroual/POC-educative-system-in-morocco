@@ -1,7 +1,8 @@
 import {Directive, ElementRef, OnInit, Renderer2} from "@angular/core";
 
 @Directive({
-  selector: '[appIframe]'
+    selector: '[appIframe]',
+    standalone: true
 })
 export class IframeDirective {
 

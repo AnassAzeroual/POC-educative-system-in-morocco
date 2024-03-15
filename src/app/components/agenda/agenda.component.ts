@@ -6,12 +6,20 @@ import { AgendaService } from "src/app/services/agenda-service/agenda.service";
 import { SessionService } from "src/app/services/session/session.service";
 import { LocalStorageService } from "src/app/services/LocalStorage/local-storage.service";
 import { Router } from "@angular/router";
+import { NgIf } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { FooterComponent } from "../ui/footer/footer.component";
+import { BoxSidebarComponent } from "../box-sidebar/box-sidebar.component";
+import { BoutonHomeComponent } from "../ui/bouton-home/bouton-home.component";
+import { NavbarComponent } from "../ui/navbar/navbar.component";
 
 declare var $: any;
 @Component({
-  selector: "app-agenda",
-  templateUrl: "./agenda.component.html",
-  styleUrls: ["./agenda.component.css","./modal.component.css"]
+    selector: "app-agenda",
+    templateUrl: "./agenda.component.html",
+    styleUrls: ["./agenda.component.css", "./modal.component.css"],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, BoxSidebarComponent, FooterComponent, FormsModule, NgIf]
 })
 export class AgendaComponent implements OnInit {
 

@@ -2,11 +2,19 @@ import { Component, OnInit } from "@angular/core";
 import { AnnalesService } from "../../services/annales-service/annales.service";
 import AppError from "../../common/app-error";
 import AppNotFoundException from "src/app/common/app-not-found";
+import { FooterComponent } from "../ui/footer/footer.component";
+import { BoxSidebarComponent } from "../box-sidebar/box-sidebar.component";
+import { RouterLink } from "@angular/router";
+import { NgFor } from "@angular/common";
+import { BoutonHomeComponent } from "../ui/bouton-home/bouton-home.component";
+import { NavbarComponent } from "../ui/navbar/navbar.component";
 
 @Component({
-  selector: "app-annales",
-  templateUrl: "./annales.component.html",
-  styleUrls: ["./annales.component.css"]
+    selector: "app-annales",
+    templateUrl: "./annales.component.html",
+    styleUrls: ["./annales.component.css"],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgFor, RouterLink, BoxSidebarComponent, FooterComponent]
 })
 export class AnnalesComponent implements OnInit {
   constructor(private annalesService: AnnalesService) {}

@@ -8,8 +8,8 @@ describe('AnnalesDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnnalesDisplayComponent ]
-    })
+    imports: [AnnalesDisplayComponent]
+})
     .compileComponents();
   }));
 

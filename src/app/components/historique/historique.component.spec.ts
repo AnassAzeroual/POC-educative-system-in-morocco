@@ -8,8 +8,8 @@ describe('HistoriqueComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HistoriqueComponent ]
-    })
+    imports: [HistoriqueComponent]
+})
     .compileComponents();
   }));
 

@@ -4,12 +4,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { ScoringService } from 'src/app/services/scoring-service/scoring-service.service';
+import { FooterComponent } from '../ui/footer/footer.component';
+import { BoxSidebarComponent } from '../box-sidebar/box-sidebar.component';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 declare var $:any;
 @Component({
-  selector: 'app-cours-video',
-  templateUrl: './cours-video.component.html',
-  styleUrls: ['./cours-video.component.css']
+    selector: 'app-cours-video',
+    templateUrl: './cours-video.component.html',
+    styleUrls: ['./cours-video.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, BoxSidebarComponent, FooterComponent]
 })
 export class CoursVideoComponent implements OnInit,AfterViewInit {
   

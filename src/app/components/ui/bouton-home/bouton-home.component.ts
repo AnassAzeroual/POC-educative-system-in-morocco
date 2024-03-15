@@ -1,9 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NgFor } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-bouton-home',
-  templateUrl: './bouton-home.component.html',
-  styleUrls: ['./bouton-home.component.css']
+    selector: 'app-bouton-home',
+    templateUrl: './bouton-home.component.html',
+    styleUrls: ['./bouton-home.component.css'],
+    standalone: true,
+    imports: [RouterLink, NgFor]
 })
 export class BoutonHomeComponent implements OnInit {
 

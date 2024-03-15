@@ -1,11 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 import { AnnalesService } from "src/app/services/annales-service/annales.service";
+import { FooterComponent } from "../../ui/footer/footer.component";
+import { BoxSidebarComponent } from "../../box-sidebar/box-sidebar.component";
+import { BoutonHomeComponent } from "../../ui/bouton-home/bouton-home.component";
+import { NavbarComponent } from "../../ui/navbar/navbar.component";
 
 @Component({
-  selector: "app-annales-display",
-  templateUrl: "./annales-display.component.html",
-  styleUrls: ["./annales-display.component.css"]
+    selector: "app-annales-display",
+    templateUrl: "./annales-display.component.html",
+    styleUrls: ["./annales-display.component.css"],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, BoxSidebarComponent, FooterComponent]
 })
 export class AnnalesDisplayComponent implements OnInit {
   chemin;

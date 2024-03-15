@@ -1,13 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ScoringService } from 'src/app/services/scoring-service/scoring-service.service';
 
 @Component({
-  selector: 'app-note',
-  templateUrl: './note.component.html',
-  styleUrls: ['./note.component.css']
+    selector: 'app-note',
+    templateUrl: './note.component.html',
+    styleUrls: ['./note.component.css'],
+    standalone: true,
+    imports: [RouterLink]
 })
 export class NoteComponent implements OnInit {
 

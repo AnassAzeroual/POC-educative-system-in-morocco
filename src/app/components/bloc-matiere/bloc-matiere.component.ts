@@ -2,16 +2,23 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BlocService } from "src/app/services/blocService/bloc.service";
 import { LocalStorageService } from "src/app/services/LocalStorage/local-storage.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Router, ActivatedRoute, RouterLink } from "@angular/router";
 import { QuizServiceService } from "src/app/services/quizService/quiz-service.service";
 import { ControleService } from "src/app/services/controleService/controle.service";
+import { FooterComponent } from "../ui/footer/footer.component";
+import { BoxSidebarComponent } from "../box-sidebar/box-sidebar.component";
+import { NgIf, NgFor } from "@angular/common";
+import { BoutonHomeComponent } from "../ui/bouton-home/bouton-home.component";
+import { NavbarComponent } from "../ui/navbar/navbar.component";
 
 declare var $: any;
 
 @Component({
-  selector: "app-bloc-matiere",
-  templateUrl: "./bloc-matiere.component.html",
-  styleUrls: ["./bloc-matiere.component.css"]
+    selector: "app-bloc-matiere",
+    templateUrl: "./bloc-matiere.component.html",
+    styleUrls: ["./bloc-matiere.component.css"],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgIf, NgFor, RouterLink, BoxSidebarComponent, FooterComponent]
 })
 export class BlocMatiereComponent implements OnInit {
   constructor(
