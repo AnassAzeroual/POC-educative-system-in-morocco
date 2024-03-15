@@ -2,13 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DoquestionComponent } from '../doquestion/doquestion.component';
+import { FormsModule } from '@angular/forms';
+import { NgIf, NgFor } from '@angular/common';
+import { NoteComponent } from '../../sidebare/note/note.component';
+import { BoutonHomeComponent } from '../../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../../ui/navbar/navbar.component';
 
 declare var $:any;
 
 @Component({
-  selector: 'app-questions-reponses',
-  templateUrl: './questions-reponses.component.html',
-  styleUrls: ['./questions-reponses.component.css']
+    selector: 'app-questions-reponses',
+    templateUrl: './questions-reponses.component.html',
+    styleUrls: ['./questions-reponses.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NoteComponent, NgIf, NgFor, FormsModule, DoquestionComponent]
 })
 export class QuestionsReponsesComponent implements OnInit {
 

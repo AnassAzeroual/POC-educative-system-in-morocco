@@ -7,12 +7,19 @@ import { ScoringService } from 'src/app/services/scoring-service/scoring-service
 import { ActivityService } from 'src/app/services/activity-service/activity.service';
 import { NotifierService } from 'angular-notifier';
 import { CookieService } from 'ngx-cookie-service';
+import { FooterComponent } from '../ui/footer/footer.component';
+import { BoxSidebarComponent } from '../box-sidebar/box-sidebar.component';
+import { NgIf } from '@angular/common';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 declare var $: any;
 @Component({
-  selector: 'app-cours',
-  templateUrl: './cours.component.html',
-  styleUrls: ['./cours.component.css']
+    selector: 'app-cours',
+    templateUrl: './cours.component.html',
+    styleUrls: ['./cours.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgIf, BoxSidebarComponent, FooterComponent]
 })
 export class CoursComponent implements OnInit,AfterViewInit {
 

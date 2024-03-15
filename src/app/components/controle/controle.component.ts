@@ -4,12 +4,20 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { ControleService } from 'src/app/services/controleService/controle.service';
+import { FooterComponent } from '../ui/footer/footer.component';
+import { BoxSidebarComponent } from '../box-sidebar/box-sidebar.component';
+import { NgFor } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 declare var $: any;
 @Component({
-  selector: 'app-controle',
-  templateUrl: './controle.component.html',
-  styleUrls: ['./controle.component.css']
+    selector: 'app-controle',
+    templateUrl: './controle.component.html',
+    styleUrls: ['./controle.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, FormsModule, NgFor, BoxSidebarComponent, FooterComponent]
 })
 export class ControleComponent implements OnInit {
   commentaires:string;

@@ -2,13 +2,20 @@ import { Component, OnInit, DoCheck} from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { HttpClient } from '@angular/common/http';
+import { FooterComponent } from '../ui/footer/footer.component';
+import { BoxSidebarComponent } from '../box-sidebar/box-sidebar.component';
+import { NgIf, NgFor } from '@angular/common';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 declare var $:any;
 
 @Component({
-  selector: 'app-classement',
-  templateUrl: './classement.component.html',
-  styleUrls: ['./classement.component.css']
+    selector: 'app-classement',
+    templateUrl: './classement.component.html',
+    styleUrls: ['./classement.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgIf, NgFor, BoxSidebarComponent, FooterComponent]
 })
 export class ClassementComponent implements OnInit,DoCheck {
 

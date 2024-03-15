@@ -8,8 +8,8 @@ describe('ParcoursComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ParcoursComponent ]
-    })
+    imports: [ParcoursComponent]
+})
     .compileComponents();
   }));
 

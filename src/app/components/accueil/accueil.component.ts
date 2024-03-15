@@ -1,16 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
 import { BlocService } from 'src/app/services/blocService/bloc.service';
+import { FooterComponent } from '../ui/footer/footer.component';
+import { BoxSidebarComponent } from '../box-sidebar/box-sidebar.component';
+import { NgFor, NgStyle, NgIf } from '@angular/common';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css']
+    selector: 'app-accueil',
+    templateUrl: './accueil.component.html',
+    styleUrls: ['./accueil.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgFor, RouterLink, NgStyle, NgIf, BoxSidebarComponent, FooterComponent]
 })
 export class AccueilComponent implements OnInit {
 

@@ -1,9 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: "bug-report",
-  templateUrl: "./bug-report.component.html",
-  styleUrls: ["./bug-report.component.css"]
+    selector: "bug-report",
+    templateUrl: "./bug-report.component.html",
+    styleUrls: ["./bug-report.component.css"],
+    standalone: true,
+    imports: [FormsModule]
 })
 export class BugReportComponent implements OnInit {
   @Input() title?: String = "Default Title";

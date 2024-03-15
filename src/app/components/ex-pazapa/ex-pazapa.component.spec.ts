@@ -8,8 +8,8 @@ describe('ExPazapaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExPazapaComponent ]
-    })
+    imports: [ExPazapaComponent]
+})
     .compileComponents();
   }));
 

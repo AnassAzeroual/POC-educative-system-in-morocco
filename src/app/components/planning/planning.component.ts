@@ -6,19 +6,22 @@ import {
   QueryList,
   ViewChildren
 } from "@angular/core";
-import {
-  NgbDate,
-  NgbCalendar,
-  NgbDatepickerConfig
-} from "@ng-bootstrap/ng-bootstrap";
+import { NgbDate, NgbCalendar, NgbDatepickerConfig, NgbDatepicker } from "@ng-bootstrap/ng-bootstrap";
 import * as moment from "moment";
 import { LocalStorageService } from "src/app/services/LocalStorage/local-storage.service";
+import { FooterComponent } from "../ui/footer/footer.component";
+import { BoxSidebarComponent } from "../box-sidebar/box-sidebar.component";
+import { NgFor } from "@angular/common";
+import { BoutonHomeComponent } from "../ui/bouton-home/bouton-home.component";
+import { NavbarComponent } from "../ui/navbar/navbar.component";
 declare var $:any;
 
 @Component({
-  selector: "app-planning",
-  templateUrl: "./planning.component.html",
-  styleUrls: ["./planning.component.css", "./modal.component.css"]
+    selector: "app-planning",
+    templateUrl: "./planning.component.html",
+    styleUrls: ["./planning.component.css", "./modal.component.css"],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgbDatepicker, NgFor, BoxSidebarComponent, FooterComponent]
 })
 export class PlanningComponent implements OnInit {
   @ViewChildren("listElement") listElement: QueryList<ElementRef>;

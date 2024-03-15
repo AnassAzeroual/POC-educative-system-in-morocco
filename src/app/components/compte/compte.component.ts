@@ -3,12 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import { CookieService } from 'ngx-cookie-service';
 import { LocalStorageService } from 'src/app/services/LocalStorage/local-storage.service';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
+import { FooterComponent } from '../ui/footer/footer.component';
+import { NoteComponent } from '../sidebare/note/note.component';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 declare var $: any;
 @Component({
-  selector: 'app-compte',
-  templateUrl: './compte.component.html',
-  styleUrls: ['./compte.component.css', './modal.component.css', './spinner.component.css']
+    selector: 'app-compte',
+    templateUrl: './compte.component.html',
+    styleUrls: ['./compte.component.css', './modal.component.css', './spinner.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NoteComponent, FooterComponent, NgIf, FormsModule]
 })
 export class CompteComponent implements OnInit {
   newLoginName: any;

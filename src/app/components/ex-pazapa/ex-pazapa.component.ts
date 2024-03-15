@@ -4,11 +4,18 @@ import { HttpClient } from "@angular/common/http";
 import { Router, ActivatedRoute } from "@angular/router";
 import { LocalStorageService } from "src/app/services/LocalStorage/local-storage.service";
 import { ScoringService } from "src/app/services/scoring-service/scoring-service.service";
+import { FooterComponent } from "../ui/footer/footer.component";
+import { BoxSidebarComponent } from "../box-sidebar/box-sidebar.component";
+import { NgIf } from "@angular/common";
+import { BoutonHomeComponent } from "../ui/bouton-home/bouton-home.component";
+import { NavbarComponent } from "../ui/navbar/navbar.component";
 
 @Component({
-  selector: "app-ex-pazapa",
-  templateUrl: "./ex-pazapa.component.html",
-  styleUrls: ["./ex-pazapa.component.css"]
+    selector: "app-ex-pazapa",
+    templateUrl: "./ex-pazapa.component.html",
+    styleUrls: ["./ex-pazapa.component.css"],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NgIf, BoxSidebarComponent, FooterComponent]
 })
 export class ExPazapaComponent implements OnInit {
   @ViewChild("iframe") iframe: ElementRef;

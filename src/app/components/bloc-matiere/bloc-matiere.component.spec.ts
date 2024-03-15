@@ -8,8 +8,8 @@ describe('BlocMatiereComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BlocMatiereComponent ]
-    })
+    imports: [BlocMatiereComponent]
+})
     .compileComponents();
   }));
 

@@ -2,12 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpClient } from '@angular/common/http';
+import { NgIf } from '@angular/common';
+import { FooterComponent } from '../ui/footer/footer.component';
+import { NoteComponent } from '../sidebare/note/note.component';
+import { BoutonHomeComponent } from '../ui/bouton-home/bouton-home.component';
+import { NavbarComponent } from '../ui/navbar/navbar.component';
 
 declare var $:any;
 @Component({
-  selector: 'app-email-validate',
-  templateUrl: './email-validate.component.html',
-  styleUrls: ['./email-validate.component.css', './modal.component.css']
+    selector: 'app-email-validate',
+    templateUrl: './email-validate.component.html',
+    styleUrls: ['./email-validate.component.css', './modal.component.css'],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, NoteComponent, FooterComponent, NgIf]
 })
 export class EmailValidateComponent implements OnInit {
   msgSuccessemail: boolean;

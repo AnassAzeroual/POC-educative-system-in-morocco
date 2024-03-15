@@ -8,8 +8,8 @@ describe('InfoQuizComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfoQuizComponent ]
-    })
+    imports: [InfoQuizComponent]
+})
     .compileComponents();
   }));
 

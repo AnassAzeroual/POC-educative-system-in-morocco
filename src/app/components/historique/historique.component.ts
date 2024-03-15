@@ -10,15 +10,22 @@ import {
 import * as moment from "moment";
 import { ActivatedRoute } from "@angular/router";
 import { HistoriqueServiceService } from "src/app/services/historique-service/historique-service.service";
-import { DOCUMENT } from "@angular/common";
+import { DOCUMENT, NgFor } from "@angular/common";
 import { LocalStorageService } from "src/app/services/LocalStorage/local-storage.service";
+import { FooterComponent } from "../ui/footer/footer.component";
+import { BoxSidebarComponent } from "../box-sidebar/box-sidebar.component";
+import { FormsModule } from "@angular/forms";
+import { BoutonHomeComponent } from "../ui/bouton-home/bouton-home.component";
+import { NavbarComponent } from "../ui/navbar/navbar.component";
 
 declare var $: any;
 
 @Component({
-  selector: "app-historique",
-  templateUrl: "./historique.component.html",
-  styleUrls: ["./historique.component.css"]
+    selector: "app-historique",
+    templateUrl: "./historique.component.html",
+    styleUrls: ["./historique.component.css"],
+    standalone: true,
+    imports: [NavbarComponent, BoutonHomeComponent, FormsModule, NgFor, BoxSidebarComponent, FooterComponent]
 })
 export class HistoriqueComponent implements OnInit {
   ngAfterViewInit() {

@@ -8,8 +8,8 @@ describe('AnnalesMatiereDetailsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AnnalesMatiereDetailsComponent ]
-    })
+    imports: [AnnalesMatiereDetailsComponent]
+})
     .compileComponents();
   }));
 

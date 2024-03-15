@@ -6,13 +6,16 @@ import { CookieService } from 'ngx-cookie-service';
 import { ScoringService } from 'src/app/services/scoring-service/scoring-service.service';
 import { ProfileService } from 'src/app/services/profile-service/profile.service';
 import { NotifierService } from 'angular-notifier';
+import { FormsModule } from '@angular/forms';
 
 declare var $ :any;
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css']
+    selector: 'app-auth',
+    templateUrl: './auth.component.html',
+    styleUrls: ['./auth.component.css'],
+    standalone: true,
+    imports: [FormsModule]
 })
 export class AuthComponent implements OnInit {
     @ViewChild('customNotificationLogin') customNotificationTmpl;

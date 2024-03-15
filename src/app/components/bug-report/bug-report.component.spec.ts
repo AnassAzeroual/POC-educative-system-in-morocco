@@ -8,8 +8,8 @@ describe("BugReportComponent", () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BugReportComponent]
-    }).compileComponents();
+    imports: [BugReportComponent]
+}).compileComponents();
   }));
 
   beforeEach(() => {
